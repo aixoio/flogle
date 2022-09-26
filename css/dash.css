@@ -1,0 +1,48 @@
+.navbar > * > * > * > * {
+
+    margin: 15px;
+
+}
+
+#navbar-prepoll-text, #hiUser {
+
+    margin: 15px;
+    color: var(--bs-light);
+
+}
+
+a {
+
+    color: var(--bs-dark);
+    text-decoration: none;
+
+}
+
+
+.container {
+
+    margin-top: 15px;
+
+}
+
+.col:hover {
+
+    animation: spin 0.3s;
+
+}
+
+.col > * {
+
+    margin: 15px;
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
