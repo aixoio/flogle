@@ -12,47 +12,40 @@ $(window).on("load", async function() {
             username: usernameE.val(),
             password_hash: sha256(passwordE.val())
 
-        }
+        };
 
         if (user.username == "") return;
-
         if (passwordE.val() == "") return;
 
-        let doesThatUser = await ajax("php/getuserbyusername.php", {
+        let userFromDB = await ajax("php/getuserbyusername.php", {
 
             username: user.username
 
         }, "POST", "json");
 
-        if (doesThatUser.length >= 1) {
+        if (userFromDB.length <= 0) {
 
             return;
 
         }
 
-        $(".form").hide();
-        $(".loading").show();
+        if (userFromDB[0].password_hash != user.password_hash) return;
 
-        let made = await ajax("php/newuser.php", {
+        let isNowLogedIn = await ajax("php/loginaction.php", {
 
-            username: user.username,
-            password_hash: user.password_hash
+            username: user.username
 
         }, "POST", "json");
 
-        if (made[0] == true) {
+
+        if (isNowLogedIn == true) {
 
             location.href = "../dash.php";
 
-        } else {
-
-            alert("Error");
-            location.reload();
-
         }
 
-
+        
 
     })
-
-});
+    
+})
