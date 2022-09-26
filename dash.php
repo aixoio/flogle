@@ -1,12 +1,11 @@
 <?php
 
-    session_start();
+session_start();
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,9 +43,12 @@
                 <h1><a href="maps/index.html">Maps</a></h1>
                 <img src="images/map.svg" alt="Map icon" width="128" height="128">
             </div>
+            <div class="col" id="docs">
+                <h1><a href="docs/index.html">Docs</a></h1>
+                <img src="images/docs.svg" alt="Docs icon" width="128" height="128">
+            </div>
         </div>
     </div>
 
 </body>
-
 </html>

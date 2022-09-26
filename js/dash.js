@@ -12,6 +12,12 @@ $(window).on("load", function() {
 
     })
 
+    $("#docs").on("click", function() {
+
+        location.href = "../docs/index.php";
+
+    })
+
     if ($("#canStay").text() != "1") {
 
         location.href = "login.html";
