@@ -12,4 +12,10 @@ $(window).on("load", function() {
 
     })
 
+    if ($("#canStay").text() != "1") {
+
+        location.href = "login.html";
+
+    }
+
 })

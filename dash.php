@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+    session_start();
+
 
 ?>
 <!DOCTYPE html>
@@ -16,8 +17,8 @@ session_start();
     <script src="js/dash.js"></script>
     <title>Flogle - Dash</title>
 </head>
-
 <body>
+    <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <nav class="navbar navbar-expand-sm bg-dark">
 
         <div class="container-fluid">
