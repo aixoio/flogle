@@ -239,7 +239,7 @@ async function uploadDoc(docFileText, userData) {
         };
 
         let originalHash = data.md5_hash;
-        let newHash = md5(JSON.stringify(dataNoMD5Hash));
+        let newHash = md5(JSON.stringify(dataNoMD5Hash)); // This is for a Checksum NOT for hashing data
 
         if (originalHash == newHash) {
 
