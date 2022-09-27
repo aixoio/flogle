@@ -1,5 +1,7 @@
 $(window).on("load", async function() {
 
+    let uptodateDocData = null;
+
     if ($("#canStay").text() != "1") {
 
         location.href = "login.html";
@@ -48,6 +50,7 @@ $(window).on("load", async function() {
 
     })
 
+    uptodateDocData = docData[0];
 
     $(".textedit").html(atob(docData[0].data))
 
@@ -109,6 +112,11 @@ $(window).on("load", async function() {
 
             $("#isSaved").text("Saved...");
 
+            uptodateDocData.data = btoa(data);
+            uptodateDocData.title = $("#titleI").val();
+
+            console.log(uptodateDocData);
+
         } else {
 
             $("#isSaved").text("Not Saved...");
@@ -124,7 +132,31 @@ $(window).on("load", async function() {
 
     })
 
+    $(".textedit").on("input", function () {
+
+        $("#isSaved").text("Not Saved...");
+
+    })
+
+    $(".textedit").on("change", function () {
+
+        $("#isSaved").text("Not Saved...");
+
+    })
+
     $("#titleI").on("DOMSubtreeModified", function () {
+
+        $("#isSaved").text("Not Saved...");
+
+    })
+
+    $("#titleI").on("input", function () {
+
+        $("#isSaved").text("Not Saved...");
+
+    })
+
+    $("#titleI").on("change", function () {
 
         $("#isSaved").text("Not Saved...");
 
