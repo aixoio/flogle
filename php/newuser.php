@@ -10,7 +10,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO users (username, password_hash) VALUES ('" . $_POST["username"] . "', '" . $_POST["password_hash"] . "')";
+    $sql = "INSERT INTO users (username, password_hash) VALUES ('" . filter_var($_POST["username"]) . "', '" . filter_var($_POST["password_hash"]) . "')";
 
     $data = array();
 
