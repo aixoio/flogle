@@ -22,7 +22,7 @@ session_start();
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>Docs</h1>
-    <button class="btn btn-primary">New document</button>
+    <button class="btn btn-primary" id="newDocBtn">New document</button>
     <hr>
     <div class="docsbox"></div>
 </body>

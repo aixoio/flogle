@@ -70,4 +70,27 @@ $(window).on("load", async function() {
 
     }
 
+    $("#newDocBtn").on("click", async function() {
+
+        let docUUID = uuid(45);
+
+        let result = await ajax("../../php/newdocument.php", {
+
+
+            docUUID: docUUID,
+            docTitle: "New document",
+            docUser_ID: userData[0].id,
+            docData: ""
+
+        }, "POST", "json");
+
+
+        if (result[0]) {
+
+            location.href = "edit.php?docid=" + docUUID;
+
+        }
+
+    })
+
 })

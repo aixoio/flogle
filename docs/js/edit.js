@@ -1,5 +1,11 @@
 $(window).on("load", async function() {
 
+    if ($("#canStay").text() != "1") {
+
+        location.href = "login.html";
+
+    }
+
     let docData = await ajax("../../php/loaddocdatabyid.php", {
 
         docUUID: $("#docID").text()
@@ -12,7 +18,24 @@ $(window).on("load", async function() {
 
     }
 
-    
+    let userData = await ajax("../../php/getuserbyusername.php", {
+
+        username: $("#userName").text()
+
+    }, "POST", "json");
+
+    if (userData.length <= 0) {
+
+        location.href = "../signup.html";
+
+    }
+
+    if (docData[0].user_id != userData[0].id) {
+
+        location.href = "index.php";
+
+    }
+
 
     $(".textedit").html(atob(docData[0].data))
 
@@ -30,7 +53,7 @@ $(window).on("load", async function() {
     })
 
     $("#iE").on("click", function () {
-
+        
         document.execCommand("italic");
 
     })
