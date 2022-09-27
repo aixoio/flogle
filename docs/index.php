@@ -23,6 +23,7 @@ session_start();
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>Docs</h1>
     <button class="btn btn-primary" id="newDocBtn">New document</button>
+    <button class="btn btn-secondary" id="backToDash">Back to dash</button>
     <hr>
     <div class="docsbox"></div>
 </body>

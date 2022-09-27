@@ -41,6 +41,12 @@ $(window).on("load", async function() {
 
     })
 
+    $("#backToDash").on("click", function () {
+        
+        location.href = "../../dash.php";
+
+    })
+
 })
 
 async function loadDocs(userData) {
