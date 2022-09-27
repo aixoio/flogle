@@ -167,8 +167,22 @@ async function loadDocs(userData) {
 
         })
 
+        delBtn.attr("title", "Delete");
+
+        let openBtn = $("<button></button>");
+
+        openBtn.addClass("btn btn-success");
+        openBtn.text("Open");
+
+        openBtn.on("click", function () {
+            
+            openDocs(docs[i].uuid);
+
+        })
+
         rapper.append(docIcon);
         rapper.append(title);
+        rapper.append(openBtn);
         rapper.append(downloadBtn);
         rapper.append(delBtn);
 
