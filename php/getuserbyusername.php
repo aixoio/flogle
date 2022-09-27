@@ -9,7 +9,12 @@
     }
     
     $sql = "SELECT * FROM users WHERE BINARY username = '" . filter_var($_POST["username"]) . "' LIMIT 1";
+    $result = $conn->query($sql);
+
+
     $data = array();
+
+    
 
     if ($result->num_rows > 0) {
     // output data of each row
