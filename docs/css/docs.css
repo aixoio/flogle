@@ -3,3 +3,15 @@ h1 {
     margin: 15px;
 
 }
+
+button {
+
+    margin: 15px;
+
+}
+
+.docsbox > * > * {
+
+    margin: 15px;
+    
+}

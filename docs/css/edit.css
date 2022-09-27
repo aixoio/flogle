@@ -1,0 +1,28 @@
+.editor > * {
+
+    margin: 15px;
+
+}
+
+.editor > .textedit {
+
+    width: 98%;
+    height: 100%;
+    box-shadow: 5px 5px 9px #aaaaaa, -5px -5px 9px #aaaaaa;
+    padding: 15px;
+
+}
+
+.styles {
+
+    text-align: end;
+    display: flex;
+    justify-content: end;
+
+}
+
+.styles > * {
+
+    margin: 15px;
+
+}

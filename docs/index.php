@@ -13,14 +13,17 @@ session_start();
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/uuid_gen.js"></script>
+    <script src="../js/ajax.js"></script>
     <script src="js/docs.js"></script>
     <title>Flogle - Docs</title>
 </head>
 
 <body>
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
+    <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>Docs</h1>
-    <button class="btn btn-"></button>
+    <button class="btn btn-primary">New document</button>
+    <hr>
     <div class="docsbox"></div>
 </body>
 
