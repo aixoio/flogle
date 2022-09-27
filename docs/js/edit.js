@@ -6,6 +6,12 @@ $(window).on("load", async function() {
 
     }
 
+    $("#goBack").on("click", function() {
+
+        location.href = "index.php";
+
+    })
+
     let docData = await ajax("../../php/loaddocdatabyid.php", {
 
         docUUID: $("#docID").text()

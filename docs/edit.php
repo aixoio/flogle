@@ -22,6 +22,7 @@ session_start();
     <span id="docID" hidden><?php echo filter_var($_GET["docid"]); ?></span>
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <div class="editor">
+        <button class="btn btn-secondary" id="goBack">Go Back</button>
         <button class="btn btn-primary" id="saveBtn">Save</button>
         <input type="text" id="titleI" placeholder="Enter your title here!">
         <span id="isSaved">Loading...</span>
