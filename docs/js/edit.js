@@ -115,8 +115,6 @@ $(window).on("load", async function() {
             uptodateDocData.data = btoa(data);
             uptodateDocData.title = $("#titleI").val();
 
-            console.log(uptodateDocData);
-
         } else {
 
             $("#isSaved").text("Not Saved...");
