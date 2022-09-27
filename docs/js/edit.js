@@ -42,6 +42,12 @@ $(window).on("load", async function() {
 
     }
 
+    $("#downloadBtn").on("click", function () {
+        
+        downloadDoc(docData[0]);
+
+    })
+
 
     $(".textedit").html(atob(docData[0].data))
 
@@ -125,3 +131,36 @@ $(window).on("load", async function() {
     })
 
 })
+
+function downloadDoc(docData) {
+
+    let newData = {
+
+        title: docData.title,
+        data: docData.data
+
+    };
+
+    newData.md5_hash = md5(JSON.stringify(newData)); // This is for a Checksum NOT for hashing data
+
+    let fileData = btoa(JSON.stringify(newData));
+
+    let a = $("<a></a>");
+
+    a.attr("href", "data:text/plain;charset=utf-8," + encodeURIComponent(fileData));
+
+    a.attr("download", docData.title + ".fogledoc");
+
+    a.hide();
+
+    $("body").append(a);
+
+    a.hide();
+
+    a[0].click();
+
+    a.hide();
+
+    a.remove();
+
+}

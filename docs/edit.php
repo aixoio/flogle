@@ -13,6 +13,7 @@ session_start();
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/libs/md5.min.js"></script>
     <script src="js/edit.js"></script>
     <title>Flogle - Docs - Edit</title>
 </head>
@@ -23,6 +24,7 @@ session_start();
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <div class="editor">
         <button class="btn btn-secondary" id="goBack">Go Back</button>
+        <button class="btn btn-primary" id="downloadBtn">Download</button>
         <button class="btn btn-primary" id="saveBtn">Save</button>
         <input type="text" id="titleI" placeholder="Enter your title here!">
         <span id="isSaved">Loading...</span>

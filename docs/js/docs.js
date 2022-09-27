@@ -47,6 +47,25 @@ $(window).on("load", async function() {
 
     })
 
+    $("#uploadBtb").on("click", function () {
+        
+        $("#fileUE")[0].click();
+
+    })
+
+    $("#fileUE").on("input", function () {
+        
+        const reader = new FileReader();
+        reader.onload = function () {
+            const text = reader.result;
+            
+            uploadDoc(text, userData);
+
+        }
+        reader.readAsText($("#fileUE")[0].files[0]);
+
+    })
+
 })
 
 async function loadDocs(userData) {
@@ -137,8 +156,20 @@ async function loadDocs(userData) {
 
         })
 
+        let downloadBtn = $("<button></button>");
+
+        downloadBtn.addClass("btn btn-primary");
+        downloadBtn.text("Download");
+
+        downloadBtn.on("click", function() {
+
+            downloadDoc(docs[i]);
+
+        })
+
         rapper.append(docIcon);
         rapper.append(title);
+        rapper.append(downloadBtn);
         rapper.append(delBtn);
 
         $(".docsbox").append(rapper);
@@ -154,6 +185,93 @@ async function loadDocs(userData) {
         function openDocs(docUUID) {
             location.href = "edit.php?docid=" + docUUID;
         }
+
+    }
+
+}
+
+function downloadDoc(docData) {
+    
+    let newData = {
+
+        title: docData.title,
+        data: docData.data
+
+    };
+
+    newData.md5_hash = md5(JSON.stringify(newData)); // This is for a Checksum NOT for hashing data
+
+    let fileData = btoa(JSON.stringify(newData));
+
+    let a = $("<a></a>");
+
+    a.attr("href", "data:text/plain;charset=utf-8," + encodeURIComponent(fileData));
+
+    a.attr("download", docData.title + ".fogledoc");
+
+    a.hide();
+
+    $("body").append(a);
+
+    a.hide();
+
+    a[0].click();
+
+    a.hide();
+
+    a.remove();
+
+}
+
+async function uploadDoc(docFileText, userData) {
+    
+    try {
+
+        let dataStr = atob(docFileText);
+
+        let data = JSON.parse(dataStr);
+
+        let dataNoMD5Hash = {
+
+            title: data.title,
+            data: data.data
+
+        };
+
+        let originalHash = data.md5_hash;
+        let newHash = md5(JSON.stringify(dataNoMD5Hash));
+
+        if (originalHash == newHash) {
+
+            let docUUID = uuid(45);
+
+            let result = await ajax("../../php/newdocument.php", {
+
+
+                docUUID: docUUID,
+                docTitle: data.title,
+                docUser_ID: userData[0].id,
+                docData: atob(data.data)
+
+            }, "POST", "json");
+
+
+            if (result[0]) {
+
+                location.href = "edit.php?docid=" + docUUID;
+
+            }
+
+
+        } else {
+
+            alert("Can't upload your file because of an error");
+
+        }
+
+    } catch (e) {
+
+        alert("Can't upload your file because of an error");
 
     }
 
