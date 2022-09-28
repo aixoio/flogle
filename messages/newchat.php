@@ -9,22 +9,28 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
-    <link rel="stylesheet" href="css/messages.css">
+    <link rel="stylesheet" href="css/newchat.css">
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
-    <script src="js/messages.js"></script>
-    <title>Flogle - Messages</title>
+    <script src="../js/uuid_gen.js"></script>
+    <script src="js/newchat.js"></script>
+    <title>Flogle - Messages - New Chat</title>
 </head>
 
 <body>
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
-    <h1>Chats</h1>
-    <button class="btn btn-secondary" id="backToDash">Back to Dash</button>
-    <button class="btn btn-primary" id="newChat">New Chat</button>
+    <h1>New Chat</h1>
     <hr>
-    <div id="chats"></div>
+    <div class="form">
+        <label for="titleE" class="form-label">Chat Name:</label>
+        <input type="text" id="titleE" class="form-control">
+        <label for="toE" class="form-label">To:</label>
+        <input type="text" id="toE" class="form-control"><br>
+        <button class="btn btn-outline-primary form-control" id="makeChatBtn">Create</button><br>
+    </div>
+    <span id="error"></span>
 </body>
 
 </html>

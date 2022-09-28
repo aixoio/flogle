@@ -28,6 +28,12 @@ $(window).on("load", async function () {
 
     })
 
+    $("#newChat").on("click", function () {
+        
+        location.href = "newchat.php";
+
+    })
+
 })
 
 async function loadMess(userID) {
@@ -63,6 +69,17 @@ async function loadMess(userID) {
         delBtn.attr("title", "Delete");
         delBtn.addClass("btn btn-danger");
 
+        let openBtn = $("<button</button>");
+
+        openBtn.addClass("btn btn-success");
+        openBtn.text("Open");
+
+        openBtn.on("click", function () {
+            
+            openChat(currDat.uuid);
+
+        })
+
         chatTitle.on("click", function () {
             
             openChat(currDat.uuid);
@@ -77,6 +94,7 @@ async function loadMess(userID) {
 
         rapper.append(messIcon);
         rapper.append(chatTitle);
+        rapper.append(openBtn);
         rapper.append(delBtn);
 
 
