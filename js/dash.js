@@ -24,4 +24,10 @@ $(window).on("load", function() {
 
     }
 
+    $("#mess").on("click", function () {
+        
+        location.href = "../messages/index.php";
+
+    })
+
 })

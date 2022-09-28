@@ -6,6 +6,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ session_start();
     <script src="js/dash.js"></script>
     <title>Flogle - Dash</title>
 </head>
+
 <body>
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <nav class="navbar navbar-expand-sm bg-dark">
@@ -44,11 +46,16 @@ session_start();
                 <img src="images/map.svg" alt="Map icon" width="128" height="128">
             </div>
             <div class="col" id="docs">
-                <h1><a href="docs/index.html">Docs</a></h1>
+                <h1><a href="docs/index.php">Docs</a></h1>
                 <img src="images/docs.svg" alt="Docs icon" width="128" height="128">
+            </div>
+            <div class="col" id="mess">
+                <h1><a href="messages/index.php">Messages</a></h1>
+                <img src="images/messages.svg" alt="Messages icon" width="128" height="128">
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
