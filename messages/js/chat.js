@@ -42,7 +42,7 @@ $(window).on("load", async function () {
 
     if (otherUserData.length <= 0) {
 
-        // delete chat
+        // TODO: delete chat
 
         location.href = "index.php";
 
@@ -85,7 +85,7 @@ $(window).on("load", async function () {
         
         loadMessages(userData[0]);
 
-    }, 1500)
+    }, 2000)
 
 })
 
