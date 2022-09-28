@@ -83,7 +83,7 @@ $(window).on("load", async function () {
 
     setInterval(async function () {
         
-        await loadMessages(userData[0]);
+        loadMessages(userData[0]);
 
     }, 1500)
 
@@ -124,6 +124,12 @@ async function loadMessages(userData) {
 
         text.addClass(currMess.from_id == userData.id ? "from-self" : "to-self");
         text.text(atob(currMess.message))
+
+        rapper.on("click", function () {
+            
+            location = "confirmmessagedelete.php?messageid=" + messages[i].id;
+
+        })
 
 
         let d = new Date(+currMess.time);

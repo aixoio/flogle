@@ -101,7 +101,7 @@ async function loadDocs(userData) {
             let yBtn = $("<button></button>");
             let nBtn = $("<button></button>");
 
-            message.html(`Are you sure you want to <b>permanently</b> delete "${docs[i].title}"?`);
+            message.text(`Are you sure you want to permanently delete "${docs[i].title}"?`);
 
             yBtn.addClass("btn btn-danger");
             yBtn.text("Yes");
