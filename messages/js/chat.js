@@ -75,6 +75,12 @@ $(window).on("load", async function () {
 
     })
 
+    $("#getDown").on("click", function () {
+        
+        downloadChat(chatData[0], userData[0], otherUserData[0]);
+
+    })
+
     setInterval(async function () {
         
         await loadMessages(userData[0]);
@@ -166,4 +172,47 @@ async function sendMessage(userData, chatData) {
 
     }
     
+}
+
+async function downloadChat(chatData, userData, otherUserData) {
+    
+    let messages = await ajax("../../php/loadallmessagesbychatuuid.php", {
+
+        chatUUID: $("#chatUUID").text()
+
+    }, "POST", "json");
+
+    let script = `Transcript of "${chatData.title}"\n\n`;
+
+    for (let i = 0; i < messages.length; i++) {
+
+        let messageSenderUsername = messages[i].from_id == userData.id ? userData.username : otherUserData.username;
+
+        let line = `${new Date(+messages[i].time).toString()}, ${messageSenderUsername}: ${atob(messages[i].message)}\n`;
+
+        script += line;
+
+    }
+
+    let fileData = script;
+
+    let a = $("<a></a>");
+
+    a.attr("href", "data:text/plain;charset=utf-8," + encodeURIComponent(fileData));
+
+    a.attr("download", chatData.title + ".txt");
+
+    a.hide();
+
+    $("body").append(a);
+
+    a.hide();
+
+    a[0].click();
+
+    a.hide();
+
+    a.remove();
+
+
 }

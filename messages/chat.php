@@ -23,7 +23,8 @@ session_start();
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <span id="chatUUID" hidden><?php echo filter_var($_GET["chatUUID"]); ?></span>
     <h1>Messages</h1><br>
-    <button class="btn btn-secondary" id="backToChats">Back to Chats</button><br>
+    <button class="btn btn-secondary" id="backToChats">Back to Chats</button>
+    <button class="btn btn-primary" id="getDown">Download Complete transcript</button><br>
     <span id="toMessage"></span>
     <hr>
     <div class="messs"></div>
