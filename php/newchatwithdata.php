@@ -22,7 +22,7 @@
 
     $sql = sprintf(
         "INSERT INTO chats (uuid, title, from_id, to_id) VALUES ('%s', '%s', %s, %s)",
-        $docUUID,
+        $chatUUID,
         $chatTitle,
         $chatFromID,
         $chatToID

@@ -40,14 +40,18 @@ $(window).on("load", async function () {
 
         }
 
+        let uid = uuid(45);
+
+
         let made = await ajax("../../php/newchatwithdata.php", {
 
-            chatUUID: uuid(45),
+            chatUUID: uid,
             chatTitle: $("#titleE").val(),
             chatFromID: userData[0].id,
             chatToID: toUserData[0].id
 
         }, "POST", "json");
+
 
         if (made[0]) {
 
