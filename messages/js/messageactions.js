@@ -48,6 +48,8 @@ $(window).on("load", async function () {
 
     let safeToDelete = (chatData[0].from_id == userData[0].id || chatData[0].to_id == userData[0].id);
 
+    let isYourMessage = (messageData[0].from_id == userData[0].id);
+
     if (!safeToDelete) {
 
         location.href = "index.php";
@@ -97,6 +99,70 @@ $(window).on("load", async function () {
     $("body").append($("<br>"));
     $("body").append(yBtn);
     $("body").append(nBtn);
+
+    if (isYourMessage) {
+
+        let editTitle = $("<h1></h1>");
+
+        editTitle.text("Edit");
+
+        let editBoxE = $("<input></input>");
+        let editBoxEL = $("<label></label>");
+
+        editBoxE.attr("id", "editBoxE");
+        editBoxEL.attr("for", "editBoxE");
+        editBoxEL.text("Message:");
+
+        editBoxE.attr("type", "text");
+        editBoxE.val(atob(messageData[0].message));
+
+        let changeBtn = $("<button></button>");
+
+        changeBtn.text("Update message");
+        changeBtn.addClass("btn btn-primary");
+
+        let cancelBtn = $("<button></button>");
+
+        cancelBtn.text("Cancel");
+        cancelBtn.addClass("btn btn-secondary");
+
+        cancelBtn.on("click", function () {
+            
+            location.href = "chat.php?chatUUID=" + chatData[0].uuid;
+
+        })
+
+        changeBtn.on("click", async function () {
+            
+            if (editBoxE.val() != "") {
+
+                let changed = await ajax("../../php/editmessagebyid.php", {
+
+                    newMessage: editBoxE.val(),
+                    messageID: messageData[0].id
+
+                }, "POST", "json");
+
+                if (changed[0]) {
+
+                    location.href = "chat.php?chatUUID=" + chatData[0].uuid;
+
+                }
+
+            }
+
+        })
+
+
+        $("body").append(editTitle);
+        $("body").append($("<br>"));
+        $("body").append(editBoxEL);
+        $("body").append(editBoxE);
+        $("body").append(changeBtn);
+        $("body").append(cancelBtn);
+
+
+    }
 
 
 

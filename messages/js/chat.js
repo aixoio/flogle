@@ -127,7 +127,7 @@ async function loadMessages(userData) {
 
         rapper.on("click", function () {
             
-            location = "confirmmessagedelete.php?messageid=" + messages[i].id;
+            location = "messageactions.php?messageid=" + messages[i].id;
 
         })
 
