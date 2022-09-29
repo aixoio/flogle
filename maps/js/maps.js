@@ -10,6 +10,20 @@ $(window).on("load", async function() {
 
     getLatLon(map);
 
+    $("#goBtn").on("click", function () {
+        
+        $("#lat").html("Latitude: " + +$("#latE").val() + "&deg;");
+        $("#lon").html("Longitude: " + +$("#lotE").val() + "&deg;");
+        $("#accuracy").hide();
+
+
+
+        L.marker([+$("#latE").val(), +$("#lotE").val()]).addTo(map);
+        map.setView([+$("#latE").val(), +$("#lotE").val()], 13);
+
+        
+    })
+
     
 
 })
