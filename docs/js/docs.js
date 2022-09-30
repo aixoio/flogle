@@ -144,6 +144,8 @@ async function loadDocs(userData) {
 
         })
 
+        rapper.attr("title", formatBytes(new Blob([docs[i].data]).size, 2));
+
         let docIcon = $("<img></img>");
 
         docIcon.attr("src", "../../images/docs.svg");
@@ -202,6 +204,19 @@ async function loadDocs(userData) {
 
     }
 
+}
+
+function formatBytes(bytes, decimals = 2) { // This is just from stackoverflow link: https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+
+    if (!+bytes) return '0 Bytes'
+
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
 }
 
 function downloadDoc(docData) {

@@ -27,11 +27,17 @@ session_start();
         <button class="btn btn-primary" id="downloadBtn">Download</button>
         <button class="btn btn-primary" id="saveBtn">Save</button>
         <input type="text" id="titleI" placeholder="Enter your title here!">
-        <span id="isSaved">Loading...</span>
+        <span id="isSaved">Loading...</span><span id="sizeE"></span>
         <div class="styles control-btn-container">
+            <button class="btn btn-dark control-btn" id="cenE">Center</button>
+            <button class="btn btn-dark control-btn" id="fullE">Full</button>
+            <button class="btn btn-dark control-btn" id="leftE">Left</button>
+            <button class="btn btn-dark control-btn" id="rightE">Right</button>
+            <button class="btn btn-dark control-btn" id="resetE">Reset</button>
             <button class="btn btn-dark control-btn" id="bE"><b>B</b></button>
             <button class="btn btn-dark control-btn" id="iE"><i>I</i></button>
             <button class="btn btn-dark control-btn" id="uE"><u>U</u></button>
+            <button class="btn btn-dark control-btn" id="sE"><s>S</s></button>
             <input type="color" id="colorE">
             <label for="sizeE">Size:</label>
             <input type="number" id="sizeE" min="1" max="512" value="3">

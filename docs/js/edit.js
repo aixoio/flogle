@@ -60,6 +60,8 @@ $(window).on("load", async function() {
     
     $("#isSaved").text("Saved...");
 
+    $("#sizeE").text(formatBytes(new Blob([docData[0].data]).size), 2);
+
 
     $("#bE").on("click", function() {
 
@@ -88,7 +90,43 @@ $(window).on("load", async function() {
 
     $("#changeSize").on("click", function () {
         
-        document.execCommand("fontSize", false, $("#sizeE").val());
+        document.execCommand("fontSize", true, $("#sizeE").val());
+
+    })
+
+    $("#cenE").on("click", function () {
+        
+        document.execCommand("justifyCenter");
+
+    })
+
+    $("#fullE").on("click", function () {
+        
+        document.execCommand("justifyFull");
+
+    })
+
+    $("#leftE").on("click", function () {
+
+        document.execCommand("justifyLeft");
+
+    })
+
+    $("#rightE").on("click", function () {
+
+        document.execCommand("justifyRight");
+
+    })
+
+    $("#resetE").on("click", function () {
+        
+        document.execCommand("removeFormat");
+
+    })
+
+    $("#sE").on("click", function () {
+
+        document.execCommand("strikeThrough");
 
     })
 
@@ -114,6 +152,7 @@ $(window).on("load", async function() {
 
             uptodateDocData.data = btoa(data);
             uptodateDocData.title = $("#titleI").val();
+            $("#sizeE").text(formatBytes(new Blob([docData[0].data]).size), 2);
 
         } else {
 
@@ -193,4 +232,17 @@ function downloadDoc(docData) {
 
     a.remove();
 
+}
+
+function formatBytes(bytes, decimals = 2) { // This is just from stackoverflow link: https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+
+    if (!+bytes) return '0 Bytes'
+
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
 }
