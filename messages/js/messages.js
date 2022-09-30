@@ -44,6 +44,8 @@ async function loadMess(userID) {
 
     }, "POST", "json");
 
+    $("#chats").empty();
+
     for (let i = 0; i < messs.length; i++) {
 
         let currDat = messs[i];
@@ -68,6 +70,66 @@ async function loadMess(userID) {
         delBtn.append($("<img></img").attr("src", "../../images/trash.svg").width(32).height(32).attr("alt", "Delete"));
         delBtn.attr("title", "Delete");
         delBtn.addClass("btn btn-danger");
+
+        delBtn.on("click", function () {
+            
+            let conRapper = $("<div></div>");
+
+            let areYouSure = $("<span></span>");
+
+            areYouSure.text(`Are you sure you want to permanently delete the chat "${currDat.title}" and all of it's messages?`);
+
+            let yBtn = $("<button></button>");
+            let nBtn = $("<button></button>");
+
+            nBtn.addClass("btn btn-primary");
+            nBtn.text("No");
+            nBtn.css("margin", "15px");
+
+            yBtn.addClass("btn btn-danger");
+            yBtn.text("Yes");
+            yBtn.css("margin", "15px");
+
+            yBtn.on("click", async function () {
+
+                conRapper.remove();
+
+                let good = await ajax("../../php/deletechat.php", {
+
+                    chatID: currDat.id
+
+                }, "POST", "json");
+
+                if (good[0]) {
+
+                    loadMess(userID);
+
+                } else {
+
+                    alert("Error!");
+
+                }
+
+            })
+
+            nBtn.on("click", function () {
+
+                conRapper.remove();
+
+            })
+
+            conRapper.append(areYouSure);
+            conRapper.append($("<br>"));
+            conRapper.append(yBtn);
+            conRapper.append(nBtn);
+
+            conRapper.hide();
+
+            delBtn.after(conRapper);
+
+            conRapper.fadeIn("fast");
+
+        })
 
         let openBtn = $("<button</button>");
 

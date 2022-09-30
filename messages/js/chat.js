@@ -42,7 +42,21 @@ $(window).on("load", async function () {
 
     if (otherUserData.length <= 0) {
 
-        // TODO: delete chat
+        let good = await ajax("../../php/deletechat.php", {
+
+            chatID: chatData[0].id
+
+        }, "POST", "json");
+
+        if (good[0]) {
+
+            location.href = "index.php";
+
+        } else {
+
+            alert("Error!");
+
+        }
 
         location.href = "index.php";
 
