@@ -8,7 +8,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     
-    $sql = "SELECT * FROM users WHERE BINARY username = '" . filter_var($_POST["username"]) . "' LIMIT 1";
+    $sql = "SELECT * FROM users WHERE username = '" . filter_var($_POST["username"]) . "' LIMIT 1";
     $result = $conn->query($sql);
 
 
