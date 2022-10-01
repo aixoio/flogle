@@ -90,7 +90,7 @@ $(window).on("load", async function() {
 
     $("#changeSize").on("click", function () {
         
-        document.execCommand("fontSize", false, $("#sizeE").val());
+        document.execCommand("fontSize", false, $("#sizeE2").val());
 
     })
 

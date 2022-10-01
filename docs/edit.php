@@ -40,7 +40,7 @@ session_start();
             <button class="btn btn-dark control-btn" id="sE"><s>S</s></button>
             <input type="color" id="colorE">
             <label for="sizeE">Size:</label>
-            <input type="number" id="sizeE" min="1" max="512" value="3">
+            <input type="number" id="sizeE2" min="1" max="512" value="3">
             <button class="btn btn-primary" id="changeSize">Change size</button>
         </div>
         <hr>
