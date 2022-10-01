@@ -21,6 +21,5 @@ bootstrap css: https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.m
 https://getbootstrap.com/
 <hr>
 
-https://getbootstrap.com/
 bootstrap js: https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js
-
+https://getbootstrap.com/
