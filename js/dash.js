@@ -30,4 +30,10 @@ $(window).on("load", function() {
 
     })
 
+    $("#setsBtn").on("click", function () {
+        
+        location.href = "settings.php";
+
+    })
+
 })

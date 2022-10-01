@@ -1,0 +1,23 @@
+body {
+
+    text-align: center;
+
+}
+
+body > * {
+
+    margin: 15px;
+
+}
+
+body > * > * {
+
+    margin: 15px;
+
+}
+
+div > * {
+
+    margin: 15px;
+
+}
