@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `removeChatWithMessages` (IN `cid` BIGINT(19))  BEGIN
+CREATE PROCEDURE `removeChatWithMessages` (IN `cid` BIGINT(19))  BEGIN
 DELETE FROM chats WHERE id = cid;
 DELETE FROM messages WHERE chat_id = cid;
 END$$
