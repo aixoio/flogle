@@ -36,4 +36,10 @@ $(window).on("load", function() {
 
     })
 
+    $("#acoin").on("click", function () {
+        
+        location.href = "../acoin/index.php";
+
+    })
+
 })

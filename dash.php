@@ -56,6 +56,10 @@ session_start();
                 <h1><a href="messages/index.php">Messages</a></h1>
                 <img src="images/messages.svg" alt="Messages icon" width="128" height="128">
             </div>
+            <div class="col" id="acoin">
+                <h1><a href="acoin/index.php">aCoin</a></h1>
+                <img src="images/acoin.svg" alt="aCoin icon" width="128" height="128">
+            </div>
         </div>
     </div>
 
