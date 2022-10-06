@@ -18,7 +18,7 @@
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="js/tools.js"></script>
-    <title>Flogle - aCoin</title>
+    <title>Flogle - aCoin - Dash</title>
 </head>
 
 <body>
