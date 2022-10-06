@@ -4,7 +4,7 @@ $(window).on("load", async function() {
 
     if ($("#canStay").text() != "1") {
 
-        location.href = "login.html";
+        location.href = "../../login.html";
 
     }
 
@@ -82,7 +82,7 @@ $(window).on("load", async function() {
     })
 
 
-    $("#colorE").on("change", function () {
+    $("#colorE").on("input", function () {
 
         document.execCommand("foreColor", false, $("#colorE").val());
 
