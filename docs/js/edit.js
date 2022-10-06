@@ -201,6 +201,12 @@ $(window).on("load", async function() {
 
     })
 
+    $("#exportBtn").on("click", function () {
+        
+        location.href = `exportdoc.php?docid=${$("#docID").text()}`;
+
+    })
+
 })
 
 function downloadDoc(docData) {

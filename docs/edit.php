@@ -25,6 +25,7 @@ session_start();
     <div class="editor">
         <button class="btn btn-secondary" id="goBack">Go Back</button>
         <button class="btn btn-primary" id="downloadBtn">Download</button>
+        <button class="btn btn-success" id="exportBtn">Export as...</button>
         <button class="btn btn-primary" id="saveBtn">Save</button>
         <input type="text" id="titleI" placeholder="Enter your title here!">
         <span id="isSaved">Loading...</span><span id="sizeE"></span>
