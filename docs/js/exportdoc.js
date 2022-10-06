@@ -45,20 +45,17 @@ $(window).on("load", async function () {
     $("#exportHTML").on("click", function () {
         
         let htmlDownloadText = `<!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Flogle - View - Edit - ${docData[0].title}</title>
-        </head>
-
-        <body>
-            ${atob(docData[0].data)}
-        </body>
-
-        </html>`;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flogle - View - ${docData[0].title}</title>
+</head>
+    <body>
+        ${atob(docData[0].data)}
+    </body>
+</html>`;
 
         let a = $("<a></a>");
 
