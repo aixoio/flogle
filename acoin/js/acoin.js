@@ -46,6 +46,20 @@ $(window).on("load", async function () {
 
     }
 
-    // TODO: make js to add options for acoin dash and acoin mining
+    let dashBtn = $("<button></button>");
+
+    dashBtn.addClass("btn btn-primary");
+
+    dashBtn.text("aCoin Dash");
+
+    dashBtn.on("click", function () {
+        
+        location.href = "tools.php";
+
+    })
+
+
+    $(".btns").append(dashBtn);
+    $(".btns").append($("<br>"));
 
 })

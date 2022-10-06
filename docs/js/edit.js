@@ -134,6 +134,8 @@ $(window).on("load", async function() {
 
     $("#saveBtn").on("click", async function() {
 
+        $("#isSaved").text("Saving...");
+
         let editE = $(".textedit");
 
         let data = editE.html();
