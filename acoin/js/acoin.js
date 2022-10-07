@@ -58,8 +58,29 @@ $(window).on("load", async function () {
 
     })
 
+    let mineBtn = $("<button></button>");
+
+    let canMineR = await ajax("../../php/canmineacoin.php", null, "GET", "json");
+
+    mineBtn.addClass("btn btn-primary");
+
+    if (canMineR[0].canMine == "0") {
+
+        mineBtn.addClass("disabled");
+
+    }
+
+    mineBtn.text("Mine aCoin");
+
+    mineBtn.on("click", function () {
+        
+        location.href = "mine.php";
+
+    })
+
 
     $(".btns").append(dashBtn);
     $(".btns").append($("<br>"));
-
+    $(".btns").append(mineBtn);
+    $(".btns").append($("<br>"));
 })
