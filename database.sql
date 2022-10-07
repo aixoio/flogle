@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2022 at 06:10 AM
+-- Generation Time: Oct 07, 2022 at 06:27 AM
 -- Server version: 8.0.20
 -- PHP Version: 7.3.11
 
@@ -26,12 +26,32 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE PROCEDURE `getAcoinDataByUsername` (IN `un` TEXT)  NO SQL
+BEGIN
+SET @uid = (SELECT id FROM users WHERE username = un);
+SELECT * FROM acoin_data WHERE user_id = @uid;
+END$$
+
 CREATE PROCEDURE `removeChatWithMessages` (IN `cid` BIGINT(19))  BEGIN
 DELETE FROM chats WHERE id = cid;
 DELETE FROM messages WHERE chat_id = cid;
 END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acoin_data`
+--
+
+CREATE TABLE `acoin_data` (
+  `id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `acoins` double NOT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `admin` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -71,7 +91,7 @@ CREATE TABLE `messages` (
   `id` bigint NOT NULL,
   `chat_id` bigint NOT NULL,
   `from_id` bigint NOT NULL,
-  `message` text NOT NULL,
+  `message` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `chat_uuid` text NOT NULL,
   `time` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -91,6 +111,12 @@ CREATE TABLE `users` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `acoin_data`
+--
+ALTER TABLE `acoin_data`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `chats`
@@ -119,6 +145,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `acoin_data`
+--
+ALTER TABLE `acoin_data`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chats`

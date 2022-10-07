@@ -29,7 +29,7 @@ session_start();
                     <h1 class="navbar-brand" id="navbar-prepoll-text">Flogle</h1>
                 </li>
                 <li class="nav-item">
-                    <h1 class="navbar-brand" id="hiUser">Hi, <?php echo $_SESSION["username"]; ?>!</h1>
+                    <h1 class="navbar-brand" id="hiUser">Hi, <?php echo filter_var($_SESSION["username"]); ?>!</h1>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="btn btn-success nav-link" id="setsBtn">Settings</button>

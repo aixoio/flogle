@@ -22,14 +22,12 @@
 </head>
 
 <body>
-    <span id="canStay" hidden>
-        <?php echo $_SESSION["safe"]; ?>
-    </span>
-    <span id="userName" hidden>
-        <?php echo $_SESSION["username"]; ?>
-    </span>
+    <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
+    <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>aCoin Dash</h1>
-    <div class="btns"></div>
+    <div class="btns">
+        <a class="btn btn-info" href="lookup.php">Lookup aCoin User</a>
+    </div>
 
 </body>
 
