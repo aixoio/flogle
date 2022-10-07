@@ -87,47 +87,7 @@ function loadJSBtns(userData, acoinData) {
 
         if (result[0]) {
 
-            let userDataNew = await ajax("../../php/getuserbyusername.php", {
-
-                username: $("#userName").text()
-
-            }, "POST", "json");
-
-            if (userDataNew.length <= 0) {
-
-                location.href = "../login.html";
-
-            }
-
-            let acoinDataNew = await ajax("../../php/getacoininfobyusername.php", {
-
-                username: userDataNew[0].username
-
-            }, "POST", "json");
-
-            if (acoinDataNew.length <= 0) {
-
-                let good = await ajax("../../php/setupacoinbyuserid.php", {
-
-                    userID: userDataNew[0].id
-
-                }, "POST", "json");
-
-                if (!good[0]) {
-
-                    location.href = "../login.html";
-
-                }
-
-                acoinDataNew = await ajax("../../php/getacoininfobyusername.php", {
-
-                    username: userDataNew[0].username
-
-                }, "POST", "json");
-
-            }
-
-            loadJSBtns(userDataNew[0], acoinDataNew[0]);
+            reloadThis();
 
         }
         
@@ -161,25 +121,7 @@ function loadJSBtns(userData, acoinData) {
 
         if (result[0]) {
 
-            let userDataNew = await ajax("../../php/getuserbyusername.php", {
-
-                username: $("#userName").text()
-
-            }, "POST", "json");
-
-            if (userDataNew.length <= 0) {
-
-                location.href = "../login.html";
-
-            }
-
-            let acoinDataNew = await ajax("../../php/getacoininfobyusername.php", {
-
-                username: userDataNew[0].username
-
-            }, "POST", "json");
-
-            loadJSBtns(userDataNew[0], acoinDataNew[0]);
+            reloadThis();
 
         }
 
@@ -188,5 +130,51 @@ function loadJSBtns(userData, acoinData) {
 
     $(".btns-gen").append(lockBtn);
     $(".btns-gen").append(unlockBtn);
+
+    async function reloadThis() {
+        
+        let userDataNew = await ajax("../../php/getuserbyusername.php", {
+
+            username: $("#userName").text()
+
+        }, "POST", "json");
+
+        if (userDataNew.length <= 0) {
+
+            location.href = "../login.html";
+
+        }
+
+        let acoinDataNew = await ajax("../../php/getacoininfobyusername.php", {
+
+            username: userDataNew[0].username
+
+        }, "POST", "json");
+
+        if (acoinDataNew.length <= 0) {
+
+            let good = await ajax("../../php/setupacoinbyuserid.php", {
+
+                userID: userDataNew[0].id
+
+            }, "POST", "json");
+
+            if (!good[0]) {
+
+                location.href = "../login.html";
+
+            }
+
+            acoinDataNew = await ajax("../../php/getacoininfobyusername.php", {
+
+                 username: userDataNew[0].username
+
+            }, "POST", "json");
+
+        }
+
+        loadJSBtns(userDataNew[0], acoinDataNew[0]);
+
+    }
 
 }
