@@ -32,7 +32,8 @@
         <a class="btn btn-dark" href="allacoinuser.html">All aCoin Users</a>
         <a class="btn btn-primary" href="sendacoin.php">Send aCoin</a>
         <a class="btn btn-primary" href="requestacoin.php">Request aCoin</a>
-        
+        <br>
+        <div class="btns-gen"></div>
     </div>
     <a class="btn btn-secondary" href="index.php">Back</a>
 
