@@ -32,7 +32,9 @@
         <a class="btn btn-dark" href="allacoinuser.html">All aCoin Users</a>
         <a class="btn btn-primary" href="sendacoin.php">Send aCoin</a>
         <a class="btn btn-primary" href="requestacoin.php">Request aCoin</a>
+        <button class="btn btn-primary" id="reloadData">Refresh</button>
         <br>
+        <h1 id="acoinsENum">aCoins:</h1>
         <div class="btns-gen"></div>
     </div>
     <a class="btn btn-secondary" href="index.php">Back</a>

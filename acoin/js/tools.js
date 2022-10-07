@@ -8,49 +8,63 @@ $(window).on("load", async function () {
 
     }
 
-    let userData = await ajax("../../php/getuserbyusername.php", {
+    await onPageLoad();
 
-        username: $("#userName").text()
+    $("#reloadData").on("click", async function () {
+        
+        await onPageLoad();
 
-    }, "POST", "json");
+    })
 
-    if (userData.length <= 0) {
+    async function onPageLoad() {
 
-        location.href = "../login.html";
+        let userData = await ajax("../../php/getuserbyusername.php", {
 
-    }
-
-    let acoinData = await ajax("../../php/getacoininfobyusername.php", {
-
-        username: userData[0].username
-
-    }, "POST", "json");
-
-    if (acoinData.length <= 0) {
-
-        let good = await ajax("../../php/setupacoinbyuserid.php", {
-
-            userID: userData[0].id
+            username: $("#userName").text()
 
         }, "POST", "json");
 
-        if (!good[0]) {
+        if (userData.length <= 0) {
 
             location.href = "../login.html";
 
         }
 
-        acoinData = await ajax("../../php/getacoininfobyusername.php", {
+        let acoinData = await ajax("../../php/getacoininfobyusername.php", {
 
             username: userData[0].username
 
         }, "POST", "json");
 
-    }
+        if (acoinData.length <= 0) {
 
-    loadJSBtns(userData[0], acoinData[0]);
-    
-    $(".btns").show();
+            let good = await ajax("../../php/setupacoinbyuserid.php", {
+
+                userID: userData[0].id
+
+            }, "POST", "json");
+
+            if (!good[0]) {
+
+                location.href = "../login.html";
+
+            }
+
+            acoinData = await ajax("../../php/getacoininfobyusername.php", {
+
+                username: userData[0].username
+
+            }, "POST", "json");
+
+        }
+
+        $("#acoinsENum").text(`aCoins: ${acoinData[0].acoins}`);
+
+        loadJSBtns(userData[0], acoinData[0]);
+        
+        $(".btns").show();
+
+    }
     
 })
 
