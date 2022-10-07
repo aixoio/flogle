@@ -18,6 +18,7 @@
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="js/isAcoinAdmin.js"></script>
     <script src="js/tools.js"></script>
     <title>Flogle - aCoin - Dash</title>
 </head>
@@ -34,7 +35,9 @@
         <a class="btn btn-primary" href="requestacoin.php">Request aCoin</a>
         <button class="btn btn-primary" id="reloadData">Refresh</button>
         <br>
+        <hr>
         <h1 id="acoinsENum">aCoins:</h1>
+        <hr>
         <div class="btns-gen"></div>
     </div>
     <a class="btn btn-secondary" href="index.php">Back</a>

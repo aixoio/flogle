@@ -65,19 +65,21 @@ $(window).on("load", async function () {
 
         }
 
-        let acoinData = await ajax("../../php/getacoininfobyusername.php", {
+        let acoinDataN = await ajax("../../php/getacoininfobyusername.php", {
 
             username: usernameData[0].username
 
         }, "POST", "json");
 
-        if (acoinData.length <= 0) {
+        if (acoinDataN.length <= 0) {
 
             return;
 
         }
         
         if ($("#fromCoinsE").val() == "") return;
+        if (acoinDataN[0].locked == "1") return;
+        if (acoinData[0].locked == "1") return;
 
         let taken = await ajax("../../php/requestacoinaction.php", {
 

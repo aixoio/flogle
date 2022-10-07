@@ -68,7 +68,7 @@ $(window).on("load", async function () {
     
 })
 
-function loadJSBtns(userData, acoinData) {
+async function loadJSBtns(userData, acoinData) {
 
     $(".btns-gen").empty();
     
@@ -173,7 +173,242 @@ function loadJSBtns(userData, acoinData) {
 
         }
 
+        $("#acoinsENum").text(`aCoins: ${acoinDataNew[0].acoins}`);
+
         loadJSBtns(userDataNew[0], acoinDataNew[0]);
+
+    }
+
+    if (await isAdmin(userData.username)) {
+
+        let addACoin = $("<button></button>");
+        let removeACoin = $("<button></button>");
+        let enableMineing = $("<button></button>");
+        let disableMineing = $("<button></button>");
+
+        addACoin.addClass("btn btn-warning");
+        addACoin.text("Add aCoins");
+
+        removeACoin.addClass("btn btn-warning");
+        removeACoin.text("Remove aCoins");
+
+        enableMineing.addClass("btn btn-warning");
+        enableMineing.text("Enable aCoin Mining");
+
+        disableMineing.addClass("btn btn-warning");
+        disableMineing.text("Disable aCoin Mining");
+
+        removeACoin.on("click", function () {
+            
+            let rapper = $("<div></div>");
+
+            let message = $("<span></span>");
+
+            let yBtn = $("<button></button>");
+            let nBtn = $("<button></button>");
+
+
+
+            nBtn.on("click", function () {
+                
+                rapper.remove();
+
+            })
+
+            
+            let inputE = $("<input></input>");
+
+            yBtn.on("click", async function () {
+                
+                let num = inputE.val();
+
+                if (num == "") return;
+
+                rapper.hide();
+
+                let added = await ajax("../../php/removeacoin.php", {
+
+                    userID: userData.id,
+                    acoins: num
+
+                }, "POST", "json");
+
+
+
+                if (added[0]) {
+
+                    rapper.remove();
+
+                    reloadThis();
+
+                } else {
+
+                    rapper.show();
+
+                }
+
+            })
+
+            message.text("Enter the number of aCoin you want to remove");
+
+            yBtn.addClass("btn btn-primary");
+            yBtn.text("Add");
+
+            nBtn.addClass("btn btn-secondary");
+            nBtn.text("Cancel");
+
+            inputE.attr("step", "any");
+            inputE.attr("type", "number");
+
+
+            rapper.append($("<hr>"));
+            rapper.append(message);
+            rapper.append($("<br>"));
+            rapper.append(inputE);
+            rapper.append(yBtn);
+            rapper.append(nBtn);
+
+
+
+            disableMineing.after(rapper);
+
+        })
+
+        addACoin.on("click", function () {
+            
+            let rapper = $("<div></div>");
+
+            let message = $("<span></span>");
+
+            let yBtn = $("<button></button>");
+            let nBtn = $("<button></button>");
+
+
+
+            nBtn.on("click", function () {
+                
+                rapper.remove();
+
+            })
+
+            
+            let inputE = $("<input></input>");
+
+            yBtn.on("click", async function () {
+                
+                let num = inputE.val();
+
+                if (num == "") return;
+
+                rapper.hide();
+
+                let added = await ajax("../../php/addacoin.php", {
+
+                    userID: userData.id,
+                    acoins: num
+
+                }, "POST", "json");
+
+
+
+                if (added[0]) {
+
+                    rapper.remove();
+
+                    reloadThis();
+
+                } else {
+
+                    rapper.show();
+
+                }
+
+            })
+
+            message.text("Enter the number of aCoin you want to add");
+
+            yBtn.addClass("btn btn-primary");
+            yBtn.text("Add");
+
+            nBtn.addClass("btn btn-secondary");
+            nBtn.text("Cancel");
+
+            inputE.attr("step", "any");
+            inputE.attr("type", "number");
+
+
+            rapper.append($("<hr>"));
+            rapper.append(message);
+            rapper.append($("<br>"));
+            rapper.append(inputE);
+            rapper.append(yBtn);
+            rapper.append(nBtn);
+
+
+
+            disableMineing.after(rapper);
+
+        })
+
+        enableMineing.on("click", async function () {
+            
+            if (await isAdmin(userData.username)) {
+
+                let set = await ajax("../../php/changecanmineacoin.php", {
+
+                    newState: 1
+
+                }, "POST", "json");
+
+                if (set[0]) {
+
+                    reloadThis();
+
+                }
+
+            }
+
+        })
+
+        disableMineing.on("click", async function () {
+            
+            if (await isAdmin(userData.username)) {
+
+                let set = await ajax("../../php/changecanmineacoin.php", {
+
+                    newState: 0
+
+                }, "POST", "json");
+
+                if (set[0]) {
+
+                    reloadThis();
+
+                }
+
+            }
+
+        })
+
+        let canMine = await ajax("../../php/canmineacoin.php", null, "GET", "json");
+
+        if (canMine[0].canMine == "1") {
+
+            enableMineing.addClass("disabled");
+            disableMineing.removeClass("disabled");
+
+        } else {
+
+            enableMineing.removeClass("disabled");
+            disableMineing.addClass("disabled");
+
+        }
+
+
+        $(".btns-gen").append(addACoin);
+        $(".btns-gen").append(removeACoin);
+        $(".btns-gen").append(enableMineing);
+        $(".btns-gen").append(disableMineing);
 
     }
 
