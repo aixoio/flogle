@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2022 at 06:27 AM
+-- Generation Time: Oct 07, 2022 at 11:35 AM
 -- Server version: 8.0.20
 -- PHP Version: 7.3.11
 
@@ -26,15 +26,55 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE PROCEDURE `addAcoin` (IN `userIDAdd` BIGINT, IN `acoinAdds` DOUBLE)  NO SQL
+BEGIN
+
+SET @yournewacoin = (SELECT (acoins + acoinAdds) FROM acoin_data WHERE user_id = userIDAdd);
+
+UPDATE acoin_data SET acoins = @yournewacoin WHERE user_id = userIDAdd;
+
+END$$
+
 CREATE PROCEDURE `getAcoinDataByUsername` (IN `un` TEXT)  NO SQL
 BEGIN
 SET @uid = (SELECT id FROM users WHERE username = un);
 SELECT * FROM acoin_data WHERE user_id = @uid;
 END$$
 
+CREATE PROCEDURE `removeAcoin` (IN `userIDAdd` BIGINT, IN `acoinAdds` DOUBLE)  NO SQL
+BEGIN
+
+SET @yournewacoin = (SELECT (acoins - acoinAdds) FROM acoin_data WHERE user_id = userIDAdd);
+
+UPDATE acoin_data SET acoins = @yournewacoin WHERE user_id = userIDAdd;
+
+END$$
+
 CREATE PROCEDURE `removeChatWithMessages` (IN `cid` BIGINT(19))  BEGIN
 DELETE FROM chats WHERE id = cid;
 DELETE FROM messages WHERE chat_id = cid;
+END$$
+
+CREATE PROCEDURE `requestAcoin` (IN `toUserID` BIGINT, IN `fromUserID` BIGINT, IN `acoinsIN` DOUBLE)  NO SQL
+BEGIN
+
+SET @tousersnewacoins = (SELECT (acoins - acoinsIN) FROM acoin_data WHERE user_id = toUserID);
+SET @fromusersnewacoins = (SELECT (acoins + acoinsIN) FROM acoin_data WHERE user_id = fromUserID);
+
+UPDATE acoin_data SET acoins = @tousersnewacoins WHERE user_id = toUserID;
+UPDATE acoin_data SET acoins = @fromusersnewacoins WHERE user_id = fromUserID;
+
+END$$
+
+CREATE PROCEDURE `sendAcoin` (IN `toUserID` BIGINT, IN `fromUserID` BIGINT, IN `acoinsIN` DOUBLE)  NO SQL
+BEGIN
+
+SET @tousersnewacoins = (SELECT (acoins + acoinsIN) FROM acoin_data WHERE user_id = toUserID);
+SET @fromusersnewacoins = (SELECT (acoins - acoinsIN) FROM acoin_data WHERE user_id = fromUserID);
+
+UPDATE acoin_data SET acoins = @tousersnewacoins WHERE user_id = toUserID;
+UPDATE acoin_data SET acoins = @fromusersnewacoins WHERE user_id = fromUserID;
+
 END$$
 
 DELIMITER ;
@@ -52,6 +92,28 @@ CREATE TABLE `acoin_data` (
   `locked` tinyint(1) NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acoin_globals`
+--
+
+CREATE TABLE `acoin_globals` (
+  `id` bigint NOT NULL,
+  `canMine` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `allacoinusers`
+-- (See below for the actual view)
+--
+CREATE TABLE `allacoinusers` (
+`acoins` double
+,`username` text
+);
 
 -- --------------------------------------------------------
 
@@ -99,6 +161,17 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `top15acoinusers`
+-- (See below for the actual view)
+--
+CREATE TABLE `top15acoinusers` (
+`acoins` double
+,`username` text
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -108,6 +181,24 @@ CREATE TABLE `users` (
   `password_hash` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Structure for view `allacoinusers`
+--
+DROP TABLE IF EXISTS `allacoinusers`;
+
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `allacoinusers`  AS SELECT `users`.`username` AS `username`, `acoin_data`.`acoins` AS `acoins` FROM (`users` join `acoin_data` on((`users`.`id` = `acoin_data`.`user_id`))) ORDER BY `acoin_data`.`acoins` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `top15acoinusers`
+--
+DROP TABLE IF EXISTS `top15acoinusers`;
+
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `top15acoinusers`  AS SELECT `users`.`username` AS `username`, `acoin_data`.`acoins` AS `acoins` FROM (`users` join `acoin_data` on((`users`.`id` = `acoin_data`.`user_id`))) ORDER BY `acoin_data`.`acoins` DESC LIMIT 0, 15 ;
+
 --
 -- Indexes for dumped tables
 --
@@ -116,6 +207,12 @@ CREATE TABLE `users` (
 -- Indexes for table `acoin_data`
 --
 ALTER TABLE `acoin_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `acoin_globals`
+--
+ALTER TABLE `acoin_globals`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -150,6 +247,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `acoin_data`
 --
 ALTER TABLE `acoin_data`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `acoin_globals`
+--
+ALTER TABLE `acoin_globals`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
