@@ -1,0 +1,23 @@
+body {
+
+    text-align: center;
+
+}
+
+body>* {
+
+    margin: 15px;
+
+}
+
+a {
+
+    margin: 15px;
+
+}
+
+span {
+
+    margin: 15px;
+
+}

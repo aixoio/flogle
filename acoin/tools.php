@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="css/tools.css">
+    <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="js/tools.js"></script>
@@ -26,7 +27,10 @@
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>aCoin Dash</h1>
     <div class="btns">
-        <a class="btn btn-info" href="lookup.php">Lookup aCoin User</a>
+        <a class="btn btn-info" href="lookup.html">Lookup aCoin User</a>
+        <a class="btn btn-dark" href="top15acoinuser.html">Top 15 aCoin Users</a>
+        <a class="btn btn-dark" href="allacoinuser.html">All aCoin Users</a>
+        
     </div>
 
 </body>
