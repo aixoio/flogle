@@ -252,7 +252,7 @@ async function loadJSBtns(userData, acoinData) {
             message.text("Enter the number of aCoin you want to remove");
 
             yBtn.addClass("btn btn-primary");
-            yBtn.text("Add");
+            yBtn.text("Remove");
 
             nBtn.addClass("btn btn-secondary");
             nBtn.text("Cancel");
