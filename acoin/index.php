@@ -23,6 +23,8 @@ session_start();
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <h1>aCoin Tools</h1>
     <div class="btns"></div>
+    <a class="btn btn-secondary" href="../dash.php">Back</a>
+
 
 </body>
 
