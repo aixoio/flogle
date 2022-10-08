@@ -28,7 +28,7 @@ session_start();
     <h1>Mine aCoin</h1>
 
     <h2 id="totalRnE">aCoins: 0</h2>
-    <button class="btn btn-success" id="clamacoinBtn">Clam aCoin!</button>
+    <button class="btn btn-success" id="clamacoinBtn">Claim aCoin!</button>
 
     <div class="loading"></div>
 
