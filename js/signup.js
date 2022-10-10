@@ -4,6 +4,9 @@ $(window).on("load", async function() {
 
     $("#cUser").on("click", async function() {
 
+        $(".form").hide();
+        $(".loading").show();
+
         let usernameE = $("#usernameE");
         let passwordE = $("#passwordE");
 
@@ -26,12 +29,11 @@ $(window).on("load", async function() {
 
         if (doesThatUser.length >= 1) {
 
+            $(".form").show();
+            $(".loading").hide();
             return;
 
         }
-
-        $(".form").hide();
-        $(".loading").show();
 
         let made = await ajax("php/newuser.php", {
 

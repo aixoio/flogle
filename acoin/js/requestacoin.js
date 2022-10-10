@@ -80,6 +80,9 @@ $(window).on("load", async function () {
         if ($("#fromCoinsE").val() == "") return;
         if (acoinDataN[0].locked == "1") return;
         if (acoinData[0].locked == "1") return;
+        if ($("#fromCoinsE").val() <= 0) return;
+
+        if (+$("#fromCoinsE").val() > acoinDataN[0].acoins) return;
 
         let taken = await ajax("../../php/requestacoinaction.php", {
 

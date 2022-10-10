@@ -47,6 +47,7 @@ $(window).on("load", async function () {
     }
 
     $("#sendB").on("click", async function () {
+
         
         let usernameIN = $("#toUsernameE").val();
 
@@ -80,6 +81,8 @@ $(window).on("load", async function () {
         if (acoinDataN[0].locked == "1") return;
         if (acoinData[0].locked == "1") return;
         if ($("#toCoinsE").val() == "") return;
+        if ($("#toCoinsE").val() <= 0) return;
+        
 
         let sended = await ajax("../../php/sendacoinaction.php", {
 

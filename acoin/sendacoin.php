@@ -30,7 +30,7 @@
         <label for="toUsernameE" class="form-label">To:</label>
         <input type="text" id="toUsernameE" class="form-control">
         <label for="toCoinsE" class="form-label">aCoins:</label>
-        <input type="number" id="toCoinsE" class="form-control" step="any">
+        <input type="number" id="toCoinsE" class="form-control" step="any" min="0">
     </div>
     <button class="btn btn-success" id="sendB">Send</button>
     <a class="btn btn-secondary" href="tools.php">Back</a>
