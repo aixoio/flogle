@@ -37,6 +37,8 @@ session_start();
             aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
 
+    <h3 id="mcE"></h3>
+
     <a class="btn btn-secondary" href="index.php">Back</a>
 
 </body>
