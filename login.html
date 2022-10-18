@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/fCaptcha.css">
     <script src="js/libs/bootstrap.bundle.min.js"></script>
     <script src="js/libs/jquery-3.6.1.min.js"></script>
+    <script src="js/fCaptcha.js"></script>
     <script src="js/libs/sha256.min.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/login.js"></script>
@@ -20,6 +22,7 @@
         <label for="usernameE">Username:</label><input class="form-control" type="text" id="usernameE"><br>
         <label for="passwordE">Password:</label><input type="password" class="form-control" id="passwordE"><br>
         <button type="button" id="cUser" class="btn btn-outline-success form-control">Submit</button>
+        <div class="captcha"></div>
         <a href="signup.html">Signup</a>
     </div>
     <div class="loading"></div>
