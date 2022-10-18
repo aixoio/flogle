@@ -90,3 +90,27 @@
     user-select: none;
 
 }
+
+.fCaptcha.left {
+
+    text-align: left;
+
+}
+
+.fCaptcha.right {
+
+    text-align: right;
+
+}
+
+.fCaptcha.center {
+
+    text-align: center;
+
+}
+
+.fCaptcha.justify {
+
+    text-align: justify;
+
+}

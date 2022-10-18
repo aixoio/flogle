@@ -1,7 +1,8 @@
 
-function textfCaptcha(elemSEL, onSuccess, onSubmit = null, onChange = null, onError = null, caseSensitive = true, mess = "Enter the text you see") {
+function textfCaptcha(elemSEL, onSuccess, onSubmit = null, onChange = null, onError = null, caseSensitive = true, mess = "Enter the text you see", pos = "left") {
 
     if (mess == null) mess = "Enter the text you see"
+    if (pos == null) pos = "left"
 
     function uuid(len) {
 
@@ -104,6 +105,30 @@ function textfCaptcha(elemSEL, onSuccess, onSubmit = null, onChange = null, onEr
 
         let curr = $(elem[i]);
 
+        if (pos == "left") {
+
+            curr.addClass("fCaptcha left")
+
+        }
+
+        if (pos == "right") {
+
+            curr.addClass("fCaptcha right")
+
+        }
+
+        if (pos == "center") {
+
+            curr.addClass("fCaptcha center")
+
+        }
+
+        if (pos == "justify") {
+
+            curr.addClass("fCaptcha justify")
+
+        }
+        
         let canvas = $("<canvas></canvas>");
         let title = $("<h1></h1>");
         let input = $("<input></input>");
@@ -183,3 +208,4 @@ function textfCaptcha(elemSEL, onSuccess, onSubmit = null, onChange = null, onEr
     
 
 }
+
