@@ -1,0 +1,92 @@
+.fCaptcha {
+
+    margin: 15px;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.fCaptcha.title {
+
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.fCaptcha.canvas {
+
+
+    position: relative;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: dashed;
+
+}
+
+.fCaptcha.input {
+
+
+    padding: 15px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: #000000;
+    outline: none;
+
+}
+
+.fCaptcha.btn {
+
+
+    padding: 15px;
+    background-color: #3cf21f;
+    background: #3cf21f;
+    color: #000000;
+    border-radius: 15px;
+    border: none;
+
+}
+
+.fCaptcha.btn:hover {
+
+
+    padding: 15px;
+    background-color: #30c719;
+    background: #30c719;
+    color: #000000;
+    border-radius: 15px;
+    border: none;
+
+}
+
+.fCaptcha.btn:active {
+
+
+    padding: 15px;
+    background-color: #28a515;
+    color: #ffffff;
+    background: #28a515;
+    border-radius: 15px;
+    border: none;
+
+}
+
+.fCaptcha.span {
+
+    color: #1d1dff;
+    text-decoration: underline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.fCaptcha.span:active {
+
+    color: #1d1dff;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    user-select: none;
+
+}
