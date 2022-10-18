@@ -18,7 +18,7 @@
     $docID = filter_var($_POST["docID"]);
 
     $sql = sprintf(
-        "DELETE FROM docs WHERE id = %s",
+        "DELETE FROM docs WHERE BINARY id = %s",
         $docID
     );
 

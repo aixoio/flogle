@@ -16,7 +16,7 @@
     }
 
     $sql = sprintf(
-        "SELECT * FROM chats WHERE uuid = '%s' LIMIT 1",
+        "SELECT * FROM chats WHERE BINARY uuid = '%s' LIMIT 1",
         filter_var($_POST["chatUUID"])
     );
     $result = $conn->query($sql);

@@ -8,7 +8,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM docs WHERE user_id = " . filter_var($_POST["userid"]);
+    $sql = "SELECT * FROM docs WHERE BINARY user_id = " . filter_var($_POST["userid"]);
     $result = $conn->query($sql);
 
 
