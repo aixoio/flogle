@@ -33,6 +33,7 @@ $(window).on("load", async function() {
                 $(".loading").hide();
                 $(".captcha").empty();
                 $(".form").show();
+                canLogin = false;
                 textfCaptcha(".captcha", () => {
 
                     canLogin = true;
@@ -47,6 +48,7 @@ $(window).on("load", async function() {
                 $(".loading").hide();
                 $(".captcha").empty();
                 $(".form").show();
+                canLogin = false;
                 textfCaptcha(".captcha", () => {
 
                     canLogin = true;
@@ -68,6 +70,7 @@ $(window).on("load", async function() {
                 $(".loading").hide();
                 $(".captcha").empty();
                 $(".form").show();
+                canLogin = false;
                 textfCaptcha(".captcha", () => {
 
                     canLogin = true;
@@ -83,6 +86,7 @@ $(window).on("load", async function() {
                 $(".loading").hide();
                 $(".captcha").empty();
                 $(".form").show();
+                canLogin = false;
                 textfCaptcha(".captcha", () => {
 
                     canLogin = true;

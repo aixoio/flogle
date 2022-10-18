@@ -34,6 +34,7 @@ $(window).on("load", async function() {
                 $(".form").show();
                 $(".loading").hide();
                 $(".captcha").empty();
+                canSignup = false;
                 textfCaptcha(".captcha", () => {
 
                     canSignup = true;
@@ -49,6 +50,7 @@ $(window).on("load", async function() {
                 $(".form").show();
                 $(".loading").hide();
                 $(".captcha").empty();
+                canSignup = false;
                 textfCaptcha(".captcha", () => {
 
                     canSignup = true;
@@ -70,6 +72,7 @@ $(window).on("load", async function() {
                 $(".form").show();
                 $(".loading").hide();
                 $(".captcha").empty();
+                canSignup = false;
                 textfCaptcha(".captcha", () => {
 
                     canSignup = true;
