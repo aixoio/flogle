@@ -9,7 +9,7 @@ $(window).on("load", async function() {
         canLogin = true;
         $(".captcha").empty();
 
-    }, null, null, null, false, "Enter the text you see to login", "center")
+    }, null, null, null, true, "Enter the text you see to login", "center")
 
     $("#cUser").on("click", async function() {
 
@@ -39,7 +39,7 @@ $(window).on("load", async function() {
                     canLogin = true;
                     $(".captcha").empty();
 
-                }, null, null, null, false, "Enter the text you see to login", "center")
+                }, null, null, null, true, "Enter the text you see to login", "center")
                 return;
 
             }
@@ -54,7 +54,7 @@ $(window).on("load", async function() {
                     canLogin = true;
                     $(".captcha").empty();
 
-                }, null, null, null, false, "Enter the text you see to login", "center")
+                }, null, null, null, true, "Enter the text you see to login", "center")
                 return;
 
             }
@@ -76,7 +76,7 @@ $(window).on("load", async function() {
                     canLogin = true;
                     $(".captcha").empty();
 
-                }, null, null, null, false, "Enter the text you see to login", "center")
+                }, null, null, null, true, "Enter the text you see to login", "center")
                 return;
 
             }
@@ -92,7 +92,7 @@ $(window).on("load", async function() {
                     canLogin = true;
                     $(".captcha").empty();
 
-                }, null, null, null, false, "Enter the text you see to login", "center")
+                }, null, null, null, true, "Enter the text you see to login", "center")
                 return;
 
             }
