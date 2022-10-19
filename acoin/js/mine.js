@@ -15,60 +15,66 @@ $(window).on("load", async function () {
 
     $("#clamacoinBtn").on("click", async function () {
 
-        let userData = await ajax("../../php/getuserbyusername.php", {
+        $(".main").hide();
 
-            username: $("#userName").text()
+        textfCaptcha(".captcha", async () => {
 
-        }, "POST", "json");
+            let userData = await ajax("../../php/getuserbyusername.php", {
 
-        if (userData.length <= 0) {
-
-            location.href = "../login.html";
-
-        }
-
-        let acoinData = await ajax("../../php/getacoininfobyusername.php", {
-
-            username: userData[0].username
-
-        }, "POST", "json");
-
-        if (acoinData.length <= 0) {
-
-            let good = await ajax("../../php/setupacoinbyuserid.php", {
-
-                userID: userData[0].id
+                username: $("#userName").text()
 
             }, "POST", "json");
 
-            if (!good[0]) {
+            if (userData.length <= 0) {
 
                 location.href = "../login.html";
 
             }
 
-            acoinData = await ajax("../../php/getacoininfobyusername.php", {
+            let acoinData = await ajax("../../php/getacoininfobyusername.php", {
 
                 username: userData[0].username
 
             }, "POST", "json");
 
-        }
-        
-        ismineing = false;
+            if (acoinData.length <= 0) {
 
-        let good = await ajax("../../php/addacoin.php", {
+                let good = await ajax("../../php/setupacoinbyuserid.php", {
 
-            userID: userData[0].id,
-            acoins: acoins
+                    userID: userData[0].id
 
-        }, "POST", "json");
+                }, "POST", "json");
 
-        if (good[0]) {
+                if (!good[0]) {
 
-            location.href = "tools.php";
+                    location.href = "../login.html";
 
-        }
+                }
+
+                acoinData = await ajax("../../php/getacoininfobyusername.php", {
+
+                    username: userData[0].username
+
+                }, "POST", "json");
+
+            }
+            
+            ismineing = false;
+
+            let good = await ajax("../../php/addacoin.php", {
+
+                userID: userData[0].id,
+                acoins: acoins
+
+            }, "POST", "json");
+
+            if (good[0]) {
+
+                location.href = "tools.php";
+
+            }
+
+        }, null, null, null, true, "Enter the you see to claim your aCoin", "center")
         
     })
 
