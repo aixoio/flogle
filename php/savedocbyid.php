@@ -3,12 +3,6 @@
 
     require "info.php";
 
-    if (!$_SESSION["safe"]) {
-
-        die("Can not Continue");
-
-    }
-
     $conn = new mysqli(getSQLhost(), getSQLusername(), getSQLpassword(), getSQLdb());
     // Check connection
     if ($conn->connect_error) {
