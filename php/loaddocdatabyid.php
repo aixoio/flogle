@@ -17,7 +17,7 @@
 
     $docUUID = filter_var($_POST["docUUID"]);
 
-    $sql = "SELECT * FROM docs WHERE uuid = '" . $docUUID . "' LIMIT 1";
+    $sql = "SELECT * FROM docs WHERE BINARY uuid = '" . $docUUID . "' LIMIT 1";
     $result = $conn->query($sql);
 
     $data = array();
