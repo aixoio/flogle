@@ -74,7 +74,7 @@ $(window).on("load", async function() {
             
             grecaptcha.ready(() => {
                 grecaptcha.execute(getreCaptchaSiteKeyV3(), {
-                    action: "Login"
+                    action: "Signup"
                 }).then(async (token) => {
                     
                     let data = await ajax("php/recaptchaapi.php", {
