@@ -34,7 +34,7 @@ function onloadreCaptchaCallback() {
 
                     }, "POST", "json");
                     
-                    if (v3reData.score == 0.5 || scoreVerifyed) {
+                    if (v3reData.score >= 0.5 || scoreVerifyed) {
                         
                         canLookup = true;
 
