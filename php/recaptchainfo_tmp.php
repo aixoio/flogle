@@ -22,5 +22,15 @@
         return "yourreCaptchaSecretKeyV3";
     }
 
+    function getreCaptchaSiteKeyInv()
+    {
+        return "yourreCaptchaSiteKeyInvV2";
+    }
+
+    function getreCaptchaSecretKeyInv()
+    {
+        return "yourreCaptchaSecretKeyInvV2";
+    }
+
 
 ?>

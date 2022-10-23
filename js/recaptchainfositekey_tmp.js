@@ -9,3 +9,7 @@ function getreCaptchaSiteKeyV3() {
     return "yourreCaptchaSiteKeyV3";
 }
 
+function getreCaptchaSiteKeyInv() {
+    return "yourreCaptchaSiteKeyInvV2";
+}
+

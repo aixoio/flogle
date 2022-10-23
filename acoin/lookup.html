@@ -7,22 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="css/lookup.css">
-    <link rel="stylesheet" href="../css/fCaptcha.css">
+    <link rel="stylesheet" href="../css/loading.css">
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadreCaptchaCallback&render=explicit" async defer></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
-    <script src="../js/fCaptcha.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/lookup.js"></script>
     <title>Flogle - aCoin - Dash - Lookup</title>
 </head>
 
 <body>
     <h1>Lookup aCoin user</h1>
+    <div class="loading"></div>
     <div class="askForUser">
         <label for="userNameIn" class="form-label">Username:</label>
         <input type="text" id="userNameIn" class="form-control"><br>
         <button class="btn btn-info" id="lookupUser">Lookup</button><br>
     </div>
-    <div class="captcha"></div>
     <div class="resultData">
         <h3>Results</h3>
         <span id="usernameR"></span><br>

@@ -16,5 +16,11 @@
 
     }
 
+    if ($_POST["mode"] == "v2inv") {
+
+        echo filter_var(recaptchaverify($_POST["token"], getreCaptchaSecretKeyInv()));
+
+    }
+
 
 ?>
