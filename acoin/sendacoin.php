@@ -25,14 +25,16 @@
 <body>
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
-    <h1>aCoin Send</h1>
-    <div class="btns">
-        <label for="toUsernameE" class="form-label">To:</label>
-        <input type="text" id="toUsernameE" class="form-control">
-        <label for="toCoinsE" class="form-label">aCoins:</label>
-        <input type="number" id="toCoinsE" class="form-control" step="any" min="0">
+    <div class="main">
+        <h1>aCoin Send</h1>
+        <div class="btns">
+            <label for="toUsernameE" class="form-label">To:</label>
+            <input type="text" id="toUsernameE" class="form-control">
+            <label for="toCoinsE" class="form-label">aCoins:</label>
+            <input type="number" id="toCoinsE" class="form-control" step="any" min="0">
+        </div>
+        <button class="btn btn-success" id="sendB">Send</button>
     </div>
-    <button class="btn btn-success" id="sendB">Send</button>
     <a class="btn btn-secondary" href="tools.php">Back</a>
 
 </body>
