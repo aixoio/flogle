@@ -9,6 +9,7 @@ h1 {
 
     width: 95%;
     margin: 15px;
+    display: none;
 
 }
 
@@ -37,6 +38,14 @@ a {
     justify-content: center;
     text-decoration: none;
     font-size: 125%;
+
+}
+
+#captcha {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
 
 }
 

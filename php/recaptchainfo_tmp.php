@@ -12,5 +12,15 @@
         return "yourreCaptchaSecretKeyCheckbox";
     }
 
+    function getreCaptchaSiteKeyV3()
+    {
+        return "yourreCaptchaSiteKeyV3";
+    }
+
+    function getreCaptchaSecretKeyV3()
+    {
+        return "yourreCaptchaSecretKeyV3";
+    }
+
 
 ?>
