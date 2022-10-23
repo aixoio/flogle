@@ -2,6 +2,8 @@ $.getScript("https://www.google.com/recaptcha/api.js?onload=onloadreCaptchaCallb
 
 let canLogin = false;
 let recaptcha = null;
+let scoreVerifyed = false;
+let canVerifyScore = false;
 
 function onloadreCaptchaCallback() {
     
@@ -20,9 +22,21 @@ function onloadreCaptchaCallback() {
                 
                 canLogin = true;
                 
+                if (canVerifyScore) {
+
+                    scoreVerifyed = true;
+
+                }
+                
             } else {
                 
                 canLogin = false;
+
+                if (canVerifyScore) {
+
+                    scoreVerifyed = false;
+
+                }
                 
             }
             
@@ -30,6 +44,11 @@ function onloadreCaptchaCallback() {
         "expired-callback": () => {
             
             canLogin = false;
+            if (canVerifyScore) {
+
+                scoreVerifyed = false;
+
+            }
             
         }
     });
@@ -126,15 +145,17 @@ $(window).on("load", async function() {
 
                         }, "POST", "json");
 
-                        if (data.score >= 0.5) {
+                        if (data.score >= 0.5 || scoreVerifyed) {
 
                             location.href = "../dash.php";
 
                         } else {
 
+                            canVerifyScore = true;
                             $(".loading").hide();
                             $(".form").show();
                             canLogin = false;
+                            scoreVerifyed = false;
                             grecaptcha.reset(recaptcha);
 
                         }
