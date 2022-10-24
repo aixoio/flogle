@@ -18,6 +18,7 @@
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/sendacoin.js"></script>
     <title>Flogle - aCoin - Dash - Send</title>
 </head>
@@ -33,6 +34,7 @@
             <label for="toCoinsE" class="form-label">aCoins:</label>
             <input type="number" id="toCoinsE" class="form-control" step="any" min="0">
         </div>
+        <div id="captcha"></div>
         <button class="btn btn-success" id="sendB">Send</button>
     </div>
     <a class="btn btn-secondary" href="tools.php">Back</a>

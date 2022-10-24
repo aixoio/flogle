@@ -9,3 +9,11 @@ body > * {
     margin: 15px;
 
 }
+
+#captcha {
+
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+
+}
