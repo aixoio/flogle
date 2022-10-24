@@ -1,3 +1,54 @@
+$.getScript("https://www.google.com/recaptcha/api.js?onload=onloadreCaptchaCallback&render=" + getreCaptchaSiteKeyV3());
+
+let scoreVerifyed = false;
+let canScoreVerify = false;
+let canTake = false;
+let recapt = null;
+
+
+function onloadreCaptchaCallback() {
+    
+    recapt = grecaptcha.render("captcha", {
+
+        "sitekey": getreCaptchaSiteKeyCheckbox(),
+        "callback": async (token) => {
+
+            let reData = await ajax("../../php/recaptchaapi.php", {
+
+                mode: "v2checkbox",
+                token: token
+
+            }, "POST", "json");
+
+            if (reData.success) {
+
+                canTake = true;
+
+                if (canScoreVerify) {
+
+                    scoreVerifyed = true;
+
+                }
+
+            } else {
+
+
+                canTake = false;
+
+            }
+
+        },
+        "expired-callback": () => {
+
+            canTake = false;
+            scoreVerifyed = false;
+
+        }
+
+    })
+
+}
+
 $(window).on("load", async function () {
     
     if ($("#canStay").text() != "1") {
@@ -48,55 +99,95 @@ $(window).on("load", async function () {
 
     $("#requestB").on("click", async function () {
         
-        let usernameIN = $("#fromUsernameE").val();
 
-        if (usernameIN == "") return;
-        if (usernameIN == userData[0].username) return;
+        grecaptcha.ready(() => {
 
-        let usernameData = await ajax("../../php/getuserbyusername.php", {
+            grecaptcha.execute(getreCaptchaSiteKeyV3(), {
 
-            username: usernameIN
+                action: "Request_aCoin"
 
-        }, "POST", "json");
+            }).then(async (token) => {
 
-        if (usernameData.length <= 0) {
+                let reV3Data = await ajax("../../php/recaptchaapi.php", {
 
-            return;
+                    mode: "v3",
+                    token: token
 
-        }
+                }, "POST", "json");
 
-        let acoinDataN = await ajax("../../php/getacoininfobyusername.php", {
+                if (reV3Data.score >= 0.5 || scoreVerifyed) {
 
-            username: usernameData[0].username
+                    if (canTake) {
+            
+                        let usernameIN = $("#fromUsernameE").val();
+            
+                        if (usernameIN == "") return;
+                        if (usernameIN == userData[0].username) return;
+            
+                        let usernameData = await ajax("../../php/getuserbyusername.php", {
+            
+                            username: usernameIN
+            
+                        }, "POST", "json");
+            
+                        if (usernameData.length <= 0) {
+            
+                            return;
+            
+                        }
+            
+                        let acoinDataN = await ajax("../../php/getacoininfobyusername.php", {
+            
+                            username: usernameData[0].username
+            
+                        }, "POST", "json");
+            
+                        if (acoinDataN.length <= 0) {
+            
+                            return;
+            
+                        }
+                        
+                        if ($("#fromCoinsE").val() == "") return;
+                        if (acoinDataN[0].locked == "1") return;
+                        if (acoinData[0].locked == "1") return;
+                        if ($("#fromCoinsE").val() <= 0) return;
+            
+                        if (+$("#fromCoinsE").val() > acoinDataN[0].acoins) return;
+            
+                        let taken = await ajax("../../php/requestacoinaction.php", {
+            
+                            toID: usernameData[0].id,
+                            fromID: userData[0].id,
+                            acoins: $("#fromCoinsE").val()
+            
+                        }, "POST", "json");
+            
+                        if (taken[0]) {
+            
+                            location.href = "tools.php";
+            
+                        }
+            
+                    } else {
+            
+                        alert("You have to verify you are a human");
+            
+                    }
 
-        }, "POST", "json");
 
-        if (acoinDataN.length <= 0) {
+                } else {
 
-            return;
+                    canScoreVerify = true;
+                    canTake = false;
+                    grecaptcha.reset(recapt);
 
-        }
-        
-        if ($("#fromCoinsE").val() == "") return;
-        if (acoinDataN[0].locked == "1") return;
-        if (acoinData[0].locked == "1") return;
-        if ($("#fromCoinsE").val() <= 0) return;
+                }
 
-        if (+$("#fromCoinsE").val() > acoinDataN[0].acoins) return;
+            })
 
-        let taken = await ajax("../../php/requestacoinaction.php", {
+        })
 
-            toID: usernameData[0].id,
-            fromID: userData[0].id,
-            acoins: $("#fromCoinsE").val()
-
-        }, "POST", "json");
-
-        if (taken[0]) {
-
-            location.href = "tools.php";
-
-        }
 
     })
 

@@ -4,8 +4,15 @@ body {
 
 }
 
-body > * {
+.main > * {
 
     margin: 15px;
+
+}
+
+#captcha {
+
+    display: flex;
+    justify-content: center;
 
 }
