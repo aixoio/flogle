@@ -15,12 +15,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="css/mine.css">
-    <link rel="stylesheet" href="../css/fCaptcha.css">
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/mine.js"></script>
-    <script src="../js/fCaptcha.js"></script>
     <title>Flogle - aCoin - Dash</title>
 </head>
 
@@ -45,7 +44,7 @@ session_start();
         <h3 id="mcE"></h3>
     </div>
 
-    <div class="captcha"></div>
+    <div id="captcha"></div>
 
     <a class="btn btn-secondary" href="index.php">Back</a>
 
