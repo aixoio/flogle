@@ -42,6 +42,7 @@ function onloadreCaptchaCallback() {
         "expired-callback": () => {
 
             canSend = false;
+            scoreVerifyed = false;
 
         }
 
