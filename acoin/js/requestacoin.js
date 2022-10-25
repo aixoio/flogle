@@ -121,8 +121,21 @@ $(window).on("load", async function () {
             
                         let usernameIN = $("#fromUsernameE").val();
             
-                        if (usernameIN == "") return;
-                        if (usernameIN == userData[0].username) return;
+                        if (usernameIN == "") {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
+
+                        if (usernameIN == userData[0].username) {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
             
                         let usernameData = await ajax("../../php/getuserbyusername.php", {
             
@@ -131,9 +144,11 @@ $(window).on("load", async function () {
                         }, "POST", "json");
             
                         if (usernameData.length <= 0) {
-            
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
                             return;
-            
+
                         }
             
                         let acoinDataN = await ajax("../../php/getacoininfobyusername.php", {
@@ -143,17 +158,45 @@ $(window).on("load", async function () {
                         }, "POST", "json");
             
                         if (acoinDataN.length <= 0) {
-            
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
                             return;
-            
+
                         }
                         
-                        if ($("#fromCoinsE").val() == "") return;
-                        if (acoinDataN[0].locked == "1") return;
-                        if (acoinData[0].locked == "1") return;
-                        if ($("#fromCoinsE").val() <= 0) return;
+                        if ($("#fromCoinsE").val() == "") {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
+
+                        if (acoinDataN[0].locked == "1") {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
+
+                        if ($("#fromCoinsE").val() <= 0) {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
+
             
-                        if (+$("#fromCoinsE").val() > acoinDataN[0].acoins) return;
+                        if (+$("#fromCoinsE").val() > acoinDataN[0].acoins) {
+
+                            canTake = false;
+                            grecaptcha.reset(recapt);
+                            return;
+
+                        }
             
                         let taken = await ajax("../../php/requestacoinaction.php", {
             

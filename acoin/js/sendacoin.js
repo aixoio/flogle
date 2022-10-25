@@ -167,22 +167,6 @@ $(window).on("load", async function () {
 
                         }
 
-                        if (acoinDataN[0].locked == "1") {
-
-                            canSend = false;
-                            grecaptcha.reset(recapt);
-                            return;
-
-                        }
-
-                        if (acoinData[0].locked == "1") {
-
-                            canSend = false;
-                            grecaptcha.reset(recapt);
-                            return;
-
-                        }
-
                         if ($("#toCoinsE").val() == "") {
 
                             canSend = false;
