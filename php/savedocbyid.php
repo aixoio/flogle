@@ -13,7 +13,7 @@
     $doc = filter_var($_POST["docData"]);
     $docTitle = filter_var($_POST["docTitle"]);
 
-    $sql = "UPDATE docs SET data = '" . base64_encode($doc) . "', title = '" . $docTitle . "' WHERE uuid = '" . $docUUID . "'";
+    $sql = "UPDATE docs SET data = '" . base64_encode($doc) . "', title = '" . $docTitle . "' WHERE BINARY uuid = '" . $docUUID . "'";
 
 
     $data = array();
