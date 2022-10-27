@@ -3,6 +3,10 @@
 To make a database for Fogle run the database.sql file in MySQL.
 Open info_tmp.php and enter your info.
 
+# Uploading
+
+When you upload flogle to your website remove the grep.py file.
+
 # Libs
 
 md5: https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js
