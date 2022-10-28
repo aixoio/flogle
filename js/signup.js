@@ -60,6 +60,8 @@ function onloadreCaptchaCallback() {
 
 $(window).on("load", async function() {
 
+    $("head").before($(getGA4Code()));
+
     $(".form").show();
 
     $(".loading").hide();

@@ -1,5 +1,7 @@
 $(window).on("load", async function () {
 
+    $("head").before($(getGA4Code()));
+
     let data = await ajax("../../php/getallacoinusers.php", null, "GET", "json");
 
 

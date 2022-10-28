@@ -111,6 +111,8 @@ function onloadreCaptchaCallback() {
 
 $(window).on("load", function () {
 
+    $("head").before($(getGA4Code()));
+
     $(".askForUser").show();
     $(".resultData").hide();
     $(".loading").hide();
