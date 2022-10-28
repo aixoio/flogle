@@ -4,3 +4,5 @@ js/recaptchainfositekey.js
 .dccache
 jsconfig.json
 .vscode
+js/ga4code.js
+php/ga4code.php
