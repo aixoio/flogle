@@ -61,6 +61,10 @@ session_start();
                 <h1><a href="acoin/index.php">aCoin</a></h1>
                 <img src="images/acoin.svg" alt="aCoin icon" width="128" height="128">
             </div>
+            <div class="col" id="weather">
+                <h1><a href="weather/index.html">Weather</a></h1>
+                <img src="images/weather.svg" alt="Weather icon" width="128" height="128">
+            </div>
         </div>
     </div>
 

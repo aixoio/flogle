@@ -42,4 +42,10 @@ $(window).on("load", function() {
 
     })
 
+    $("#weather").on("click", () => {
+
+        location.href = "../weather/index.html";
+
+    })
+
 })
