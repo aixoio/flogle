@@ -24,11 +24,8 @@ input {
 }
 
 .img {
-  position: absolute;
-  left: 40vh;
-  text-align: right;
+  text-align: left;
   width: 48px;
   height: 48px;
-  z-index: 1000;
   border-radius: 5px;
 }
