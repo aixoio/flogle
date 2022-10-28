@@ -40,6 +40,8 @@ $(window).on("load", async function () {
   }).addTo(map);
 
   async function onMapClick(e) {
+    $("#lat").html("Latitude: " + e.latlng.lat + "&deg;");
+    $("#lon").html("Longitude: " + e.latlng.lng + "&deg;");
     let wdata = await getWatherData(e.latlng.lat, e.latlng.lng);
 
     if ("current_weather" in wdata) {
