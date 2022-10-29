@@ -1,17 +1,23 @@
 h1 {
-
-    margin: 15px;
-
+  margin: 15px;
 }
 
 .messRapper > * {
-
-    margin: 15px;
-
+  margin: 15px;
 }
 
 #backToDash {
+  margin: 15px;
+}
 
-    margin: 15px;
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.googlemess {
+
+
+  color: #aaaaaa;
+  margin-left: 15px;
 
 }

@@ -15,6 +15,7 @@ session_start();
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/chat.js"></script>
     <title>Flogle - Messages - Chat</title>
 </head>
@@ -24,6 +25,7 @@ session_start();
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
     <span id="chatUUID" hidden><?php echo filter_var($_GET["chatUUID"]); ?></span>
     <h1>Messages</h1><br>
+    <div id="recaptchainvbox"></div>
     <button class="btn btn-secondary" id="backToChats">Back to Chats</button>
     <button class="btn btn-primary" id="getDown">Download Complete transcript</button><br>
     <span id="toMessage"></span>

@@ -15,6 +15,7 @@ session_start();
     <script src="../js/libs/bootstrap.bundle.min.js"></script>
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/messageactions.js"></script>
     <title>Flogle - Messages - Chat - Actions</title>
 </head>

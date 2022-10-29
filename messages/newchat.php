@@ -15,6 +15,7 @@ session_start();
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="../js/uuid_gen.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/newchat.js"></script>
     <title>Flogle - Messages - New Chat</title>
 </head>
@@ -29,6 +30,7 @@ session_start();
         <input type="text" id="titleE" class="form-control">
         <label for="toE" class="form-label">To:</label>
         <input type="text" id="toE" class="form-control"><br>
+        <div id="captcha"></div><br>
         <button class="btn btn-outline-primary form-control" id="makeChatBtn">Create</button><br>
     </div>
     <span id="error"></span>
