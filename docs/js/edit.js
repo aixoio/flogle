@@ -50,7 +50,7 @@ function onloadreCaptchaCallback() {
               "json"
             );
 
-            if ((reV3Data <= 0.5 || scoreVerifyedSave) && canSave) {
+            if ((reV3Data >= 0.5 || scoreVerifyedSave) && canSave) {
               let editE = $(".textedit");
               let data = editE.html();
               let res = await ajax(
