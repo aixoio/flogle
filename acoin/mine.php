@@ -21,7 +21,7 @@ session_start();
     <script src="../js/ajax.js"></script>
     <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/mine.js"></script>
-    <title>Flogle - aCoin - Dash</title>
+    <title>Flogle - aCoin - Mine</title>
 </head>
 
 <body>
