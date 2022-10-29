@@ -16,6 +16,7 @@ session_start();
     <script src="../js/libs/jquery-3.6.1.min.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="../js/libs/md5.min.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/edit.js"></script>
     <title>Flogle - Docs - Edit</title>
 </head>
@@ -49,6 +50,7 @@ session_start();
         <hr>
         <div class="textedit" contenteditable="true"></div>
     </div>
+    <div id="saveBtnRecaptDiv"></div>
 </body>
 
 </html>

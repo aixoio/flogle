@@ -16,11 +16,13 @@ session_start();
     <script src="../js/uuid_gen.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="../js/libs/md5.min.js"></script>
+    <script src="../js/recaptchainfositekey.js"></script>
     <script src="js/docs.js"></script>
     <title>Flogle - Docs</title>
 </head>
 
 <body>
+    <div id="recaptchaUploadInvV2"></div>
     <input type="file" id="fileUE" hidden>
     <span id="canStay" hidden><?php echo $_SESSION["safe"]; ?></span>
     <span id="userName" hidden><?php echo $_SESSION["username"]; ?></span>
