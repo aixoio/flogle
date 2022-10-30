@@ -43,6 +43,8 @@ session_start();
         </div>
         
         <h3 id="mcE"></h3>
+        <hr>
+        <h3>Mine faster with the aCoin mine app!<br><a href="downloadacoinmineapp.html">Download now!</a></h3>
     </div>
 
     <div id="captcha"></div>
