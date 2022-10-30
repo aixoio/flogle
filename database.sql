@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2022 at 11:35 AM
+-- Generation Time: Oct 30, 2022 at 02:12 AM
 -- Server version: 8.0.20
 -- PHP Version: 7.3.11
 
@@ -101,8 +101,16 @@ CREATE TABLE `acoin_data` (
 
 CREATE TABLE `acoin_globals` (
   `id` bigint NOT NULL,
-  `canMine` tinyint(1) NOT NULL
+  `canMine` tinyint(1) NOT NULL,
+  `current_app_version` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `acoin_globals`
+--
+
+INSERT INTO `acoin_globals` (`id`, `canMine`, `current_app_version`) VALUES
+(1, 1, '1.0');
 
 -- --------------------------------------------------------
 
@@ -253,7 +261,7 @@ ALTER TABLE `acoin_data`
 -- AUTO_INCREMENT for table `acoin_globals`
 --
 ALTER TABLE `acoin_globals`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `chats`
