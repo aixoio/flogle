@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2022 at 02:12 AM
+-- Generation Time: Nov 10, 2022 at 09:18 AM
 -- Server version: 8.0.20
 -- PHP Version: 7.3.11
 
@@ -32,6 +32,15 @@ BEGIN
 SET @yournewacoin = (SELECT (acoins + acoinAdds) FROM acoin_data WHERE user_id = userIDAdd);
 
 UPDATE acoin_data SET acoins = @yournewacoin WHERE user_id = userIDAdd;
+
+END$$
+
+CREATE PROCEDURE `addCaptgaScore` (IN `useridin` BIGINT, IN `addtos` DOUBLE)  NO SQL
+BEGIN
+
+SET @yournewsore = (SELECT (score + addtos) FROM captga_score WHERE user_id = useridin);
+
+UPDATE captga_score SET score = @yournewsore WHERE user_id = useridin;
 
 END$$
 
@@ -110,7 +119,7 @@ CREATE TABLE `acoin_globals` (
 --
 
 INSERT INTO `acoin_globals` (`id`, `canMine`, `current_app_version`) VALUES
-(1, 1, '2.0');
+(1, 1, '1.1');
 
 -- --------------------------------------------------------
 
@@ -122,6 +131,18 @@ CREATE TABLE `allacoinusers` (
 `acoins` double
 ,`username` text
 );
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `captga_score`
+--
+
+CREATE TABLE `captga_score` (
+  `id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `score` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -224,6 +245,12 @@ ALTER TABLE `acoin_globals`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `captga_score`
+--
+ALTER TABLE `captga_score`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `chats`
 --
 ALTER TABLE `chats`
@@ -262,6 +289,12 @@ ALTER TABLE `acoin_data`
 --
 ALTER TABLE `acoin_globals`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `captga_score`
+--
+ALTER TABLE `captga_score`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chats`
