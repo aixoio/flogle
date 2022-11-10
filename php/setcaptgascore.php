@@ -10,10 +10,11 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+
     $sql = sprintf(
-        "CALL addAcoin(%s, %s)",
-        filter_var($_POST["userID"]),
-        filter_var($_POST["acoins"])
+        "UPDATE captga_score SET score = %s WHERE user_id = %s",
+        filter_var($_POST["score"]),
+        filter_var($_POST["userID"])
     );
 
 

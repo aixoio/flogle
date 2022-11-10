@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+.button {
+
+    --font: 'Boogaloo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --background-blue-color: #005aff;
+    --background-color-blue-dark: #002d81;
+
+    display: inline-block;
+    margin: 0px 8px;
+    padding: 10px 16px;
+    font-family: var(--font);
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.button.blue:active {
+
+    transform: translateX(2px) translateY(2px);
+    box-shadow: 4px 4px 0px var(--background-color-blue-dark);
+
+}
+
+
+.button.blue {
+
+    background-color: var(--background-blue-color);
+    box-shadow: 6px 6px 0px var(--background-color-blue-dark);
+
+}
+
+body {
+
+    background-color: #ffa500;
+    color: #ffffff;
+
+}
+
+#loading {
+
+    display: none;
+
+}

@@ -60,7 +60,7 @@ function onloadreCaptchaCallback() {
 
 $(window).on("load", async function() {
 
-    $("head").before($(getGA4Code()));
+    $("head").append($(getGA4Code()));
 
     $(".form").show();
 

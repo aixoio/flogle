@@ -48,4 +48,10 @@ $(window).on("load", function() {
 
     })
 
+    $("#captga").on("click", () => {
+
+        location.href = "../captga/index.php";
+
+    })
+
 })

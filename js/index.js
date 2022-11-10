@@ -1,2 +1,2 @@
 
-$("head").before($(getGA4Code()));
+$("head").append($(getGA4Code()));

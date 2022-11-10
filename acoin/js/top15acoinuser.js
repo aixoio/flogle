@@ -1,6 +1,6 @@
 $(window).on("load", async function () {
 
-    $("head").before($(getGA4Code()));
+    $("head").append($(getGA4Code()));
 
     let data = await ajax("../../php/gettop15acoinusers.php", null, "GET", "json");
 

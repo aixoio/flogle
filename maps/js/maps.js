@@ -1,6 +1,6 @@
 $(window).on("load", async function() {
 
-    $("head").before($(getGA4Code()));
+    $("head").append($(getGA4Code()));
 
 
     let map = L.map("map").setView([0, 0], 2);

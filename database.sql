@@ -110,7 +110,7 @@ CREATE TABLE `acoin_globals` (
 --
 
 INSERT INTO `acoin_globals` (`id`, `canMine`, `current_app_version`) VALUES
-(1, 1, '1.0');
+(1, 1, '2.0');
 
 -- --------------------------------------------------------
 

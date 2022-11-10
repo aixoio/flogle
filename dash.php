@@ -8,7 +8,6 @@ session_start();
 <html lang="en">
 
 <head>
-    <? require "php/ga4code.php"; echo getGA4Code(); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +16,7 @@ session_start();
     <script src="js/libs/jquery-3.6.1.min.js"></script>
     <script src="js/dash.js"></script>
     <title>Flogle - Dash</title>
+    <? require "php/ga4code.php"; echo getGA4Code(); ?>
 </head>
 
 <body>
@@ -64,6 +64,10 @@ session_start();
             <div class="col" id="weather">
                 <h1><a href="weather/index.html">Weather</a></h1>
                 <img src="images/weather.svg" alt="Weather icon" width="128" height="128">
+            </div>
+            <div class="col" id="captga">
+                <h1><a href="captga/index.php">Captga</a></h1>
+                <img src="images/captga.svg" alt="Captga icon" width="128" height="128">
             </div>
         </div>
     </div>

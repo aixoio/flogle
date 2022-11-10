@@ -6,7 +6,6 @@ session_start();
 <html lang="en">
 
 <head>
-    <?php echo getGA4Code(); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +17,7 @@ session_start();
     <script src="../js/libs/md5.min.js"></script>
     <script src="js/exportdoc.js"></script>
     <title>Flogle - Docs - Edit</title>
+    <?php echo getGA4Code(); ?>
 </head>
 
 <body>

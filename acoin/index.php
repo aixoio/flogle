@@ -7,7 +7,6 @@ session_start();
 <html lang="en">
 
 <head>
-    <? require "../php/ga4code.php"; echo getGA4Code(); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +16,7 @@ session_start();
     <script src="../js/ajax.js"></script>
     <script src="js/acoin.js"></script>
     <title>Flogle - aCoin</title>
+    <? require "../php/ga4code.php"; echo getGA4Code(); ?>
 </head>
 
 <body>

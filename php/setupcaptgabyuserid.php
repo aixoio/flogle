@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     require "info.php";
 
     $conn = new mysqli(getSQLhost(), getSQLusername(), getSQLpassword(), getSQLdb());
@@ -11,13 +9,13 @@
     }
 
     $sql = sprintf(
-        "CALL addAcoin(%s, %s)",
-        filter_var($_POST["userID"]),
-        filter_var($_POST["acoins"])
+        "INSERT INTO captga_score (user_id, score) VALUES (%s, 0)",
+        filter_var($_POST["userID"])
     );
 
 
     $data = array();
+
 
 
     if ($conn->query($sql) === TRUE) {
@@ -29,5 +27,6 @@
     $conn->close();
 
     echo json_encode($data);
+
 
 ?>

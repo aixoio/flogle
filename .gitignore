@@ -1,6 +1,8 @@
 php/info.php
 php/recaptchainfo.php
+php/hcaptchainfo.php
 js/recaptchainfositekey.js
+js/hcaptchainfositekey.js
 .dccache
 jsconfig.json
 .vscode

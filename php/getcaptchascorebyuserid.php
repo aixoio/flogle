@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     require "info.php";
 
     $conn = new mysqli(getSQLhost(), getSQLusername(), getSQLpassword(), getSQLdb());
@@ -9,22 +7,19 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-    $sql = sprintf(
-        "CALL addAcoin(%s, %s)",
-        filter_var($_POST["userID"]),
-        filter_var($_POST["acoins"])
-    );
+    
+    $sql = "SELECT * FROM captga_score WHERE user_id = " . filter_var($_POST["user_id"]) . " LIMIT 1";
+    $result = $conn->query($sql);
 
 
     $data = array();
+    
 
-
-    if ($conn->query($sql) === TRUE) {
-        $data[] = true;
-    }
-    else {
-        $data[] = false;
+    if ($result->num_rows > 0) {
+    // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
     }
     $conn->close();
 

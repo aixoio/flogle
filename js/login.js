@@ -57,7 +57,7 @@ function onloadreCaptchaCallback() {
 
 $(window).on("load", async function() {
 
-    $("head").before($(getGA4Code()));
+    $("head").append($(getGA4Code()));
     
     $(".form").show();
     
@@ -115,23 +115,28 @@ $(window).on("load", async function() {
                 return;
                 
             }
-            
-            if (userFromDB[0].password_hash != user.password_hash) {
-                
+
+            let loggedIN = await ajax(
+              "php/loginaction.php",
+              {
+                usernameIn: user.username,
+                password_hash_in: user.password_hash
+              },
+              "POST",
+              "json"
+            );
+
+            let isNowLogedIn = (loggedIN[0]);
+
+            if (isNowLogedIn == false) {
+
                 $(".loading").hide();
                 $(".form").show();
                 canLogin = false;
                 grecaptcha.reset(recaptcha);
                 return;
-                
+
             }
-            
-            let isNowLogedIn = await ajax("php/loginaction.php", {
-                
-                username: user.username
-                
-            }, "POST", "json");
-            
             
             if (isNowLogedIn == true) {
                 
