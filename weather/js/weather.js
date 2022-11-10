@@ -94,7 +94,7 @@ $(window).on("load", async function () {
 
         img.attr(
           "src",
-          "https://countryflagsapi.com/png/" + cdata.country_code
+          `https://www.countryflagicons.com/FLAT/48/${cdata.country_code}.png`
         );
         img.addClass("img");
 
