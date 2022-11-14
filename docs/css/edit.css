@@ -10,6 +10,7 @@
     height: 100%;
     box-shadow: 5px 5px 9px #aaaaaa, -5px -5px 9px #aaaaaa;
     padding: 15px;
+    outline: none;
 
 }
 
